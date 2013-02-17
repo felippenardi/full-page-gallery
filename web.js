@@ -1,15 +1,21 @@
 var express = require('express');
-var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
+
+if (process.env.REDISTOGO_URL) {
+    var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
+} else {
+    var redis = require("redis").createClient();
+}
+
 var app = express.createServer(express.logger());
+
+
+redis.set('foo', 'bar');
+redis.get('foo', function(err, value) {
+    console.log('foo is: ' + value);
+});
 
 app.get('/', function(request, response) {
     response.send('Hello World!');
-});
-
-redis.set('foo', 'bar');
-
-redis.get('foo', function(err, value) {
-    console.log('foo is: ' + value);
 });
 
 var port = process.env.PORT || 5000;
