@@ -7,6 +7,7 @@
         "redis": "0.8.2"
     },
     "devDependencies": {
+        "npm": "1.1.x",
         "grunt": "0.4.0rc7",
         "grunt-contrib-copy": "0.4.0rc7",
         "grunt-contrib-concat": "0.1.2rc6",
@@ -25,7 +26,8 @@
         "grunt-regarde": "~0.1.1",
         "gruntacular": "~0.1.1",
         "grunt-open": "~0.1.0",
-        "matchdep": "~0.1.1"
+        "matchdep": "~0.1.1",
+        "jade": "~0.28.1"
     },
     "engines": {
         "node": ">=0.8.0",
