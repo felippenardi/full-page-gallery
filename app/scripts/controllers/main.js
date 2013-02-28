@@ -7,4 +7,10 @@ angular.module('herokuApp')
       'AngularJS',
       'Testacular'
     ];
+    $scope.awesomeCats = {
+        "gato": {
+            "name": "Felix";
+            "images": ["url1", "url2", "url3"];
+        }
+    }
   });
