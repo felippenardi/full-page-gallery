@@ -10,7 +10,7 @@ angular.module('herokuApp')
     $scope.gallery = {
         "group": {
             "name": "Felix";
-            "images": ["http://placekitten.com/2000/2000"];
+            "images": ["http://skreened.com/render-product/c/u/i/cuiccqawsyevvvcgqeoo/you-ve-cat-to-be-kitten-me-right-meow-v-neck.american-apparel-unisex-v-neck-tee.athletic-grey.w760h760.jpg"];
         },
         "group": {
             "name": "Sortudo";
@@ -26,10 +26,6 @@ angular.module('herokuApp')
                 "http://placekitten.com/1150/1055",
                 "http://placekitten.com/1150/1080"
             ];
-        },
-        "group": {
-            "name": "Camisa";
-            "images": ["http://skreened.com/render-product/c/u/i/cuiccqawsyevvvcgqeoo/you-ve-cat-to-be-kitten-me-right-meow-v-neck.american-apparel-unisex-v-neck-tee.athletic-grey.w760h760.jpg"];
         }
     }
   });
