@@ -1,30 +1,29 @@
-div(class="swiper-container swiper-nested1 swiper-n1")
-  //-Pagination
-  div(class="pagination-nested1 pagination-n1")
-  //-Wrapper
-  div(class="swiper-wrapper")
-    //-Imagem
-    div(class="swiper-slide")
-      img(src="http://placekitten.com/2000/2000", alt="")
-    //-Imagem
-    div(class="swiper-slide")
-      img(src="http://placekitten.com/2000/2000", alt="")
-    //-Imagem
-    div(class="swiper-slide")
-      div(class="swiper-container swiper-nested2 swiper-n2")
-        //-Pagination
-        div(class="pagination-nested2 pagination-n2")
-        //-Wrapper
-        div(class="swiper-wrapper")
-          //-Imagem vertical
-          div(class="swiper-slide")
-            img(src="http://placekitten.com/2001/2000", alt="")
-          //-Imagem vertical
-          div(class="swiper-slide")
-            img(src="http://placekitten.com/2001/2000", alt="")
-    //-Imagem
-    div(class="swiper-slide")
-      img(src="http://placekitten.com/2000/2000", alt="")
-
-
+.swiper-container.swiper-nested1.swiper-n1
+    .pagination-nested1.pagination-n1
+      .swiper-wrapper
+        .swiper-slide.red-slide
+          img(src='http://placekitten.com/2000/2000', alt='')
+        .swiper-slide
+          .swiper-container.swiper-nested2.swiper-n2
+            .pagination-nested2.pagination-n2
+            .swiper-wrapper
+              .swiper-slide.green-slide
+                img(src='http://placekitten.com/2001/2000', alt='')
+              .swiper-slide.blue-slide
+                img(src='http://placekitten.com/1001/1000', alt='')
+              .swiper-slide.pink-slide
+                img(src='http://placekitten.com/1001/1005', alt='')
+              .swiper-slide.green-slide
+                img(src='http://placekitten.com/1011/1005', alt='')
+              .swiper-slide.blue-slide
+                img(src='http://placekitten.com/1150/1055', alt='')
+              .swiper-slide.pink-slide
+                img(src='http://placekitten.com/1150/1080', alt='')
+        .swiper-slide.orange-slide
+          img(src='http://skreened.com/render-product/c/u/i/cuiccqawsyevvvcgqeoo/you-ve-cat-to-be-kitten-me-right-meow-v-neck.american-apparel-unisex-v-neck-tee.athletic-grey.w760h760.jpg', alt='')
+        .swiper-slide.green-slide  Slide 4
+        .swiper-slide.pink-slide  Slide 5
+        .swiper-slide.orange-slide  Slide 6
+        .swiper-slide.green-slide  Slide 7
+        .swiper-slide.pink-slide  Slide 8
 
