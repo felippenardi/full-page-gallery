@@ -1,8 +1,6 @@
 .swiper-container.swiper-nested1.swiper-n1
   .pagination-nested1.pagination-n1
   .swiper-wrapper
-    .swiper-slide.red-slide
-      img(src='http://placekitten.com/2000/2000', alt='')
     .swiper-slide
       .swiper-container.swiper-nested2.swiper-n2
         .pagination-nested2.pagination-n2
@@ -27,27 +25,22 @@
             img(src='http://placekitten.com/1150/1080', alt='')
     .swiper-slide.orange-slide
       img(src='http://skreened.com/render-product/c/u/i/cuiccqawsyevvvcgqeoo/you-ve-cat-to-be-kitten-me-right-meow-v-neck.american-apparel-unisex-v-neck-tee.athletic-grey.w760h760.jpg', alt='')
-    .swiper-slide.green-slide  Slide 4
-    .swiper-slide.pink-slide  Slide 5
-    .swiper-slide.orange-slide  Slide 6
-    .swiper-slide.green-slide  Slide 7
-    .swiper-slide.pink-slide  Slide 8
 
     script
       $('.swiper-n2').css("height",$(window).height());
       $('.swiper-n3').css("height",$(window).height());
       $(function(){
         /* Nested Swipers. Vertical Swiper inside of horizontal: */
-        var swiperN1 = $('.swiper-n1').swiper({
+        $('.swiper-n1').swiper({
           pagination : '.pagination-n1',
           slidesPerSlide : 1,
         });
-        var swiperN2 = $('.swiper-n2').swiper({
+        $('.swiper-n2').swiper({
           pagination : '.pagination-n2',
           slidesPerSlide : 1,
           mode: 'vertical'
         });
-        var swiperN3 = $('.swiper-n3').swiper({
+        $('.swiper-n3').swiper({
           pagination : '.pagination-n3',
           slidesPerSlide : 1,
           mode: 'vertical'
