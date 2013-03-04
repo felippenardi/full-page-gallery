@@ -54,7 +54,8 @@
       function fitFullPage(){
         $('.swiper-n2').css("height",$(window).height());
         $('.swiper-n1').css("height",$(window).height());
-        $('.swiper-n1').swiper().resizeFix();
+        $('.swiper-container').css("height",$(window).height());
+        $('.swiper-slide').css("height",$(window).height());
       }
 
       $(window).load(function() {
