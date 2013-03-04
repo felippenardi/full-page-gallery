@@ -27,8 +27,19 @@
       img(src='http://placekitten.com/1150/1080', alt='')
 
     script
-      $('.swiper-n2').css("height",$(window).height());
-      $('.swiper-n3').css("height",$(window).height());
+      function fitFullPage(){
+        $('.swiper-n2').css("height",$(window).height());
+        $('.swiper-n3').css("height",$(window).height());
+        $('.swiper-n1').css("height",$(window).height());
+        $('.swiper-container').css("height",$(window).height());
+        $('.swiper-slide').css("height",$(window).height());
+      }
+      fitFullPage();
+
+      window.onresize = function() {
+        fitFullPage();
+      }
+
       $(function(){
         $('.swiper-n1').swiper({
           pagination : '.pagination-n1',
@@ -47,16 +58,6 @@
         fitFullPage();
       })
 
-      window.onresize = function() {
-        fitFullPage();
-      }
-
-      function fitFullPage(){
-        $('.swiper-n2').css("height",$(window).height());
-        $('.swiper-n1').css("height",$(window).height());
-        $('.swiper-container').css("height",$(window).height());
-        $('.swiper-slide').css("height",$(window).height());
-      }
 
       $(window).load(function() {
 
