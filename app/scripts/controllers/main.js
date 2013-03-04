@@ -7,16 +7,16 @@ angular.module('herokuApp')
       'AngularJS',
       'Testacular'
     ];
-    $scope.gallery = {
-        "group": {
+    $scope.gallery = [
+        {
             "name": "Felix",
             "images": ["http://skreened.com/render-product/c/u/i/cuiccqawsyevvvcgqeoo/you-ve-cat-to-be-kitten-me-right-meow-v-neck.american-apparel-unisex-v-neck-tee.athletic-grey.w760h760.jpg"]
         },
-        "group": {
+        {
             "name": "Sortudo",
             "images": ["http://placekitten.com/2001/2000"]
         },
-        "group": {
+        {
             "name": "Soft Kitty",
             "images": [
                 "http://placekitten.com/2001/2000",
@@ -27,5 +27,5 @@ angular.module('herokuApp')
                 "http://placekitten.com/1150/1080"
             ]
         }
-    };
+    ];
   });
