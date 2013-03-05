@@ -53,12 +53,17 @@
       }
 
       $(function(){
+        //-var mySwiper = new Swiper('.swiper-n1',options);
+
         $('.swiper-n1').swiper({
           pagination : '.pagination-n1',
           slidesPerSlide : 1,
           initialSlide : 0,
           grabCursor: true,
-          keyboardControl : true
+          keyboardControl : true,
+          onSlideChangeEnd : function() {
+            console.log("hamburge");
+          }
         });
         $('.swiper-n2').swiper({
           pagination : '.pagination-n2',
@@ -66,7 +71,6 @@
           mode: 'vertical',
           keyboardControl : true,
           mousewheelControl : true
-
         });
         $('.swiper-n3').swiper({
           pagination : '.pagination-n3',
