@@ -35,9 +35,7 @@
       //-});
 
       function fitFullPage(){
-        $('.swiper-n2').css("height",$(window).height());
-        $('.swiper-n3').css("height",$(window).height());
-        $('.swiper-n1').css("height",$(window).height());
+        $('[class*=swiper-n]').css("height",$(window).height());
         $('.swiper-container').css("height",$(window).height());
         $('.swiper-slide').css("height",$(window).height());
       }
@@ -66,6 +64,7 @@
         fitFullPage();
       })
 
+      /////
 
       $(window).load(function() {
 
