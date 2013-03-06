@@ -10,15 +10,15 @@ angular.module('herokuApp')
   $scope.gallery = [
     {
       "name": "Bears",
-      "images": ['http://placebear.com/2001/2000'], ['http://placebear.com/2000/2000'], ['http://placebear.com/2001/2001'], ['http://placebear.com/2001/2010']
+      "images": ["http://placebear.com/2001/2000", "http://placebear.com/2000/2000", "http://placebear.com/2001/2001", "http://placebear.com/2001/2010"]
     },
     {
       "name": "Kittens",
-      "images": ['http://placekitten.com/2001/2000'], ['http://placekitten.com/1001/1000'], ['http://placekitten.com/1001/1005'], ['http://placekitten.com/1011/1005'], ['http://placekitten.com/1150/1055'], ['http://placekitten.com/1150/1080']
+      "images": ["http://placekitten.com/2001/2000", "http://placekitten.com/1001/1000", "http://placekitten.com/1001/1005", "http://placekitten.com/1011/1005", "http://placekitten.com/1150/1055", "http://placekitten.com/1150/1080"]
     },
     {
       "name": "Doggies",
-      "images": ['http://placedog.com/2001/2000'], ['http://placedog.com/1001/1000'], ['http://placedog.com/1001/1005'], ['http://placedog.com/1011/1005'], ['http://placedog.com/1150/1055'], ['http://placedog.com/1150/1080']
+      "images": ["http://placedog.com/2001/2000", "http://placedog.com/1001/1000", "http://placedog.com/1001/1005", "http://placedog.com/1011/1005", "http://placedog.com/1150/1055", "http://placedog.com/1150/1080"]
     }
   ];
 
