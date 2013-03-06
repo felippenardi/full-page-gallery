@@ -75,10 +75,7 @@ angular.module('herokuApp')
         fitFullPage();
     })
 
-    /////
-
     $(window).load(function() {
-
         var theWindow        = $(window),
         $bg              = $(".swiper-slide img"),
         aspectRatio      = $bg.width() / $bg.height();
@@ -96,6 +93,7 @@ angular.module('herokuApp')
         }
         theWindow.resize(resizeBg).trigger("resize");
     });
+
     (function konamiActivate() {
         var easter_egg = new Konami();
         easter_egg.code = function() { alert('Konami code!'); }
