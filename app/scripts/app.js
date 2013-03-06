@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('herokuApp', [])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
@@ -10,4 +10,5 @@ angular.module('herokuApp', [])
       .otherwise({
         redirectTo: '/'
       });
+    $locationProvider.html5Mode(true);
   });
