@@ -65,7 +65,15 @@ angular.module('herokuApp')
       mousewheelControl : true
 
     });
-    //fitFullPage();
+    $('.swiper-n4').swiper({
+      pagination : '.pagination-n4',
+      slidesPerSlide : 1,
+      mode: 'vertical',
+      keyboardControl : true,
+      mousewheelControl : true
+
+    });
+    fitFullPage();
   })
 
   $(window).load(function() {

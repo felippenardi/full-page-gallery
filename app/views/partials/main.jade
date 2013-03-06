@@ -1,8 +1,8 @@
-ul(ng-repeat="item in gallery")
-  //-li(ng-repeat="item in gallery") {{$index + 1}} {{item.name}}
-  li {{$index + 1}} {{item.name}}
-    ul(ng-repeat="url in item.images")
-      li {{$index + 1}} {{url}}
+//-ul(ng-repeat="item in gallery")
+  //-//-li(ng-repeat="item in gallery") {{$index + 1}} {{item.name}}
+  //-li {{$index + 1}} {{item.name}}
+    //-ul(ng-repeat="url in item.images")
+      //-li {{$index + 1}} {{url}}
 
       //-li(ng-repeat"foo in item.lol") {{$index + 1}} {{foo}}
 .swiper-container.swiper-nested1.swiper-n1
@@ -37,4 +37,18 @@ ul(ng-repeat="item in gallery")
           .swiper-slide.pink-slide
             img(src='http://placekitten.com/1150/1080', alt='')
     .swiper-slide.orange-slide
-      img(src='http://placedog.com/1151/1080', alt='')
+      .swiper-container.swiper-nested.swiper-n4
+        .pagination-nested2.pagination-n4
+        .swiper-wrapper
+          .swiper-slide.green-slide
+            img(src='http://placekitten.com/2001/2000', alt='')
+          .swiper-slide.blue-slide
+            img(src='http://placekitten.com/1001/1000', alt='')
+          .swiper-slide.pink-slide
+            img(src='http://placekitten.com/1001/1005', alt='')
+          .swiper-slide.green-slide
+            img(src='http://placekitten.com/1011/1005', alt='')
+          .swiper-slide.blue-slide
+            img(src='http://placekitten.com/1150/1055', alt='')
+          .swiper-slide.pink-slide
+            img(src='http://placekitten.com/1150/1080', alt='')
