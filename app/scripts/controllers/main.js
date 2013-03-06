@@ -14,31 +14,27 @@ angular.module('herokuApp')
         },
         {
             "name": "Sortudo",
-            "images": ["http://placekitten.com/2001/2000"]
+            "images": ["http://placekitten.com/2001/2000"],
+            "lol":"loololololol"
         },
         {
             "name": "Soft Kitty",
-            "images": [
-                "http://placekitten.com/2001/2000",
-                "http://placekitten.com/1001/1000",
-                "http://placekitten.com/1001/1005",
-                "http://placekitten.com/1011/1005",
-                "http://placekitten.com/1150/1055",
-                "http://placekitten.com/1150/1080"
-            ]
+            "images": [ "http://placekitten.com/2001/2000", "http://placekitten.com/1001/1000",
+                "http://placekitten.com/1001/1005", "http://placekitten.com/1011/1005",
+                "http://placekitten.com/1150/1055", "http://placekitten.com/1150/1080" ]
         }
     ];
 
-    function fitFullPage(){
+    var fitFullPage = function _fitFullPage(){
         $('[class*=swiper-n]').css("height",$(window).height());
         $('.swiper-container').css("height",$(window).height());
         $('.swiper-slide').css("height",$(window).height());
-    }
-
+        console.log("activated");
+    };
     fitFullPage();
 
     window.onresize = function() {
-        fitFullPage();
+        //fitFullPage();
     }
 
     $(function(){
@@ -72,7 +68,7 @@ angular.module('herokuApp')
             mousewheelControl : true
 
         });
-        fitFullPage();
+        //fitFullPage();
     })
 
     $(window).load(function() {
