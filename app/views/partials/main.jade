@@ -55,7 +55,7 @@
       $(function(){
         //-var mySwiper = new Swiper('.swiper-n1',options);
 
-        $('.swiper-n1').swiper({
+        var mySwiper = $('.swiper-n1').swiper({
           pagination : '.pagination-n1',
           slidesPerSlide : 1,
           initialSlide : 0,
@@ -63,8 +63,11 @@
           keyboardControl : true,
           onSlideChangeEnd : function() {
             console.log("hamburge");
+            var newSlide = mySwiper.createSlide('<p>Here is my new slide</p>');
+            newSlide.append();
           }
         });
+
         $('.swiper-n2').swiper({
           pagination : '.pagination-n2',
           slidesPerSlide : 1,
