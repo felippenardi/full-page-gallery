@@ -53,7 +53,7 @@ angular.module('herokuApp')
             onSlideChangeEnd : function() {
                 console.log("hamburge");
                 var newSlide = mySwiper.createSlide('<p>Here is my new slide</p>');
-                newSlide.append();
+                //newSlide.append();
             }
         });
 
@@ -96,4 +96,19 @@ angular.module('herokuApp')
         }
         theWindow.resize(resizeBg).trigger("resize");
     });
+    (function(window, undefined){
+        var konami_keys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+        konami_index = 0,
+        handler = function(e) {
+            if (e.keyCode === konami_keys[konami_index++]) {
+                if (konami_index === konami_keys.length) {
+                    //$(document).unbind("keydown", handler);
+                    alert("OMG OMG DOUBLE RAINBOW");
+                }
+            } else {
+                konami_index = 0;
+            }
+        };
+        $(document).bind("keydown", handler);
+    })(this);
   });
