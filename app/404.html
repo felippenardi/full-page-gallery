@@ -152,6 +152,18 @@
                 var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
             </script>
             <script src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+        <script type="text/javascript" src="http://ec2.nardi.me:5000/components/konami-js/konami.js"></script>
+        <script type="text/javascript">
+          var success = function() {
+            alert("You have entered the KONAMI CODE!  You now have 30 lives.  Kinda.")
+          }
+
+          var konami = new Konami(success);
+          konami.iphone.code = function() {
+            alert("You have entered the Konami Code on your iPhone.  Nice work.")
+          }
+
+        </script>
         </div>
     </body>
 </html>
