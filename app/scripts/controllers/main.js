@@ -96,7 +96,9 @@ angular.module('herokuApp')
         }
         theWindow.resize(resizeBg).trigger("resize");
     });
-    var easter_egg = new Konami();
-    easter_egg.code = function() { alert('Konami code!'); }
-    easter_egg.load();
+    (function konamiActivate() {
+        var easter_egg = new Konami();
+        easter_egg.code = function() { alert('Konami code!'); }
+        easter_egg.load();
+    })();
   });
