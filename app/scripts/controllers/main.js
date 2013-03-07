@@ -37,8 +37,8 @@ angular.module('herokuApp')
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
 
-    var mySwiper = $('.swiper-n1').swiper({
-      pagination : '.pagination-n1',
+    var mySwiper = $('.swiper-horizontal').swiper({
+      pagination : '.pagination-horizontal',
       slidesPerSlide : 1,
       initialSlide : 0,
       grabCursor: true,
@@ -50,6 +50,13 @@ angular.module('herokuApp')
       }
     });
 
+    $('.swiper-n1').swiper({
+      pagination : '.pagination-n1',
+      slidesPerSlide : 1,
+      mode: 'vertical',
+      keyboardControl : true,
+      mousewheelControl : true
+    });
     $('.swiper-n2').swiper({
       pagination : '.pagination-n2',
       slidesPerSlide : 1,
@@ -63,15 +70,6 @@ angular.module('herokuApp')
       mode: 'vertical',
       keyboardControl : true,
       mousewheelControl : true
-
-    });
-    $('.swiper-n4').swiper({
-      pagination : '.pagination-n4',
-      slidesPerSlide : 1,
-      mode: 'vertical',
-      keyboardControl : true,
-      mousewheelControl : true
-
     });
     fitFullPage();
   })
