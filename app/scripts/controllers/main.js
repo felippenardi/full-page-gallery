@@ -26,12 +26,12 @@ angular.module('herokuApp')
     $('[class*=swiper-n]').css("height",$(window).height());
     $('.swiper-container').css("height",$(window).height());
     $('.swiper-slide').css("height",$(window).height());
-    console.log("activated");
   };
   fitFullPage();
 
   window.onresize = function() {
     //fitFullPage();
+
   }
 
   $(function(){
