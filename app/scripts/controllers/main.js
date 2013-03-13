@@ -30,7 +30,7 @@ angular.module('herokuApp')
   fitFullPage();
 
   window.onresize = function() {
-    //fitFullPage();
+    fitFullPage();
 
   }
 
