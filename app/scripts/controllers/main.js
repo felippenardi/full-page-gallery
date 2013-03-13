@@ -49,8 +49,12 @@ angular.module('herokuApp')
       var newSlide = theSwiper.createSlide(html);
       newSlide.append();
     };
-    createNewSlide(mySwiper, $scope.gallery[0].name);
-    createNewSlide(mySwiper, $scope.gallery[1].name);
+
+    (function() {
+      for (var i=0; i<$scope.gallery.length; i++) {
+        createNewSlide(mySwiper, $scope.gallery[i].name);
+      }
+    })();
 
     $('.swiper-n1').swiper({
       pagination : '.pagination-n1',
