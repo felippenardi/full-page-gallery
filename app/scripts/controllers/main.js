@@ -42,8 +42,15 @@ angular.module('herokuApp')
         console.log("hamburge");
       }
     });
-    var newSlide = mySwiper.createSlide('<p>'+$scope.gallery[0].name+'</p>');
-    newSlide.append();
+
+
+    var createNewSlide = function(theSwiper, content) {
+      var html = '<p>'+content+'</p>';
+      var newSlide = theSwiper.createSlide(html);
+      newSlide.append();
+    };
+    createNewSlide(mySwiper, $scope.gallery[0].name);
+    createNewSlide(mySwiper, $scope.gallery[1].name);
 
     $('.swiper-n1').swiper({
       pagination : '.pagination-n1',
