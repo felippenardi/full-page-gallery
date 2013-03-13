@@ -51,8 +51,8 @@ angular.module('herokuApp')
     };
 
     (function() {
-      for (var i=0; i<$scope.gallery.length; i++) {
-        createNewSlide(mySwiper, $scope.gallery[i].name);
+      for (var i=0; i<$scope.gallery[0].images.length; i++) {
+        createNewSlide(mySwiper, $scope.gallery[0].images[i]);
       }
     })();
 
