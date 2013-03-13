@@ -44,15 +44,16 @@ angular.module('herokuApp')
     });
 
 
-    var createNewSlide = function(theSwiper, content) {
-      var html = '<p>'+content+'</p>';
-      var newSlide = theSwiper.createSlide(html);
+    var createNewSlide = function(theSwiper, theHtml) {
+      var newSlide = theSwiper.createSlide(theHtml);
       newSlide.append();
     };
 
     (function() {
-      for (var i=0; i<$scope.gallery[0].images.length; i++) {
-        createNewSlide(mySwiper, $scope.gallery[0].images[i]);
+      for (var i=0; i<$scope.gallery.length; i++) {
+        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2.pagination-n"+i+"'></div> <div class='wrapper'> <div class='swiper-slide'><p>oi</p></div> </div> </div>"
+
+        createNewSlide(mySwiper, html);
       }
     })();
 
