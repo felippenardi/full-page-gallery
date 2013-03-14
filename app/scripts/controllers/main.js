@@ -23,12 +23,13 @@ angular.module('herokuApp')
   ];
 
   var fitFullPage = function _fitFullPage(){
-    $('[class*=swiper-n]').css("height",$(window).height());
+    //$('[class*=swiper-n]').css("height",$(window).height());
     $('.swiper-container').css("height",$(window).height());
     $('.swiper-slide').css("height",$(window).height());
   };
   fitFullPage();
   window.onresize = function() { fitFullPage(); }
+  window.onload = function() { fitFullPage(); }
 
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
@@ -62,6 +63,7 @@ angular.module('herokuApp')
         })})();
       }
     })();
+    fitFullPage();
     //(function() { new Swiper(".swiper-n0",{
       //pagination : '.pagination-n0',
       //slidesPerSlide : 1,
