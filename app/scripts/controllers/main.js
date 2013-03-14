@@ -53,13 +53,13 @@ angular.module('herokuApp')
       for (var i=0; i<$scope.gallery.length; i++) {
         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> <div class='swiper-slide'><p>oi</p></div> <div class='swiper-slide'><p>oi</p></div> </div> </div>"
         createNewSlide(mySwiper, html);
-        //(function() { new Swiper(".swiper-n"+i+1,{
-          //pagination : '.pagination-n'+i,
-          //slidesPerSlide : 1,
-          //mode: 'vertical',
-          //keyboardControl : true,
-          //mousewheelControl : true
-        //})})();
+        (function() { new Swiper(".swiper-n"+i,{
+          pagination : '.pagination-n'+i,
+          slidesPerSlide : 1,
+          mode: 'vertical',
+          keyboardControl : true,
+          mousewheelControl : true
+        })})();
       }
     })();
     //(function() { new Swiper(".swiper-n0",{
