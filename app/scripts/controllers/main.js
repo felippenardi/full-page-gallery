@@ -23,11 +23,10 @@ angular.module('herokuApp')
   ];
 
   var fitFullPage = function _fitFullPage(){
-    //$('[class*=swiper-n]').css("height",$(window).height());
+    $('[class*=swiper-n]').css("height",$(window).height());
     $('.swiper-container').css("height",$(window).height());
-    //$('.swiper-slide').css("height",$(window).height());
+    $('.swiper-slide').css("height",$(window).height());
   };
-  fitFullPage();
   window.onresize = function() { fitFullPage(); }
 
   $(function(){
@@ -66,13 +65,13 @@ angular.module('herokuApp')
       }
     })();
     fitFullPage();
-    //(function() { new Swiper(".swiper-n0",{
-      //pagination : '.pagination-n0',
-      //slidesPerSlide : 1,
-      //mode: 'vertical',
-      //keyboardControl : true,
-      //mousewheelControl : true
-    //})})();
+    (function() { new Swiper(".swiper-nx",{
+      pagination : '.pagination-nx',
+      slidesPerSlide : 1,
+      mode: 'vertical',
+      keyboardControl : true,
+      mousewheelControl : true
+    })})();
 
     //$('.swiper-n2').swiper({
       //pagination : '.pagination-n2',
@@ -88,7 +87,6 @@ angular.module('herokuApp')
       //keyboardControl : true,
       //mousewheelControl : true
     //});
-    fitFullPage();
   })
 
   $(window).load(function() {
