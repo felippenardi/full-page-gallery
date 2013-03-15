@@ -50,19 +50,19 @@ angular.module('herokuApp')
 
     (function() {
       for (var i=0; i<$scope.gallery.length; i++) {
-        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> <div class='swiper-slide'><p>oi</p></div> <div class='swiper-slide'><p>oi</p></div> </div> </div>"
+        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
         createNewSlide(mySwiper, html);
         fitFullPage();
-        var thisSlide = function() {
-          new Swiper(".swiper-n"+i,{
-            pagination : '.pagination-n'+i,
-            slidesPerSlide : 1,
-            mode: 'vertical',
-            keyboardControl : true,
-            mousewheelControl : true
-          });
-        };
-        thisSlide();
+        var thisSwiper = $('.swiper-n'+i).swiper({
+          pagination : '.pagination-n'+i,
+          slidesPerSlide : 1,
+          mode: 'vertical',
+          keyboardControl : true,
+          mousewheelControl : true
+        });
+        for (var k=0; k<$scope.gallery[i].images.length; k++) {
+          createNewSlide(thisSwiper, '<img src="'+$scope.gallery[i].images[k]+'/>');
+        }
       }
     })();
     fitFullPage();
