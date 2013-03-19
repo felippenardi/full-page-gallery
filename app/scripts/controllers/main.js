@@ -29,6 +29,10 @@ angular.module('herokuApp')
   };
   window.onresize = function() { $scope.fitFullPage(); }
 
+  $scope.createNewSlide = function(theSwiper, theHtml) {
+    var newSlide = theSwiper.createSlide(theHtml);
+    newSlide.append();
+  };
   var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
@@ -51,15 +55,10 @@ angular.module('herokuApp')
     });
 
 
-    var createNewSlide = function(theSwiper, theHtml) {
-      var newSlide = theSwiper.createSlide(theHtml);
-      newSlide.append();
-    };
-
     (function() {
       for (var i=0; i<$scope.gallery.length; i++) {
         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
-        createNewSlide(mySwiper, html);
+        $scope.createNewSlide(mySwiper, html);
         $scope.fitFullPage();
         var thisSwiper = $('.swiper-n'+i).swiper({
           pagination : '.pagination-n'+i,
@@ -69,7 +68,7 @@ angular.module('herokuApp')
           mousewheelControl : true
         });
         for (var k=0; k<$scope.gallery[i].images.length; k++) {
-          createNewSlide(thisSwiper, $scope.gallery[i].images[k]);
+          $scope.createNewSlide(thisSwiper, $scope.gallery[i].images[k]);
           console.log($scope.gallery[i].images[k]);
         }
       }
@@ -82,21 +81,6 @@ angular.module('herokuApp')
       keyboardControl : true,
       mousewheelControl : true
     })})();
-
-    //$('.swiper-n2').swiper({
-      //pagination : '.pagination-n2',
-      //slidesPerSlide : 1,
-      //mode: 'vertical',
-      //keyboardControl : true,
-      //mousewheelControl : true
-    //});
-    //$('.swiper-n3').swiper({
-      //pagination : '.pagination-n3',
-      //slidesPerSlide : 1,
-      //mode: 'vertical',
-      //keyboardControl : true,
-      //mousewheelControl : true
-    //});
   });
 
   $(window).load(function() {
