@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('herokuApp')
-.controller('MainCtrl', function ($scope, $location) {
+.controller('MainCtrl', function ($scope, $location, $routeParams) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
@@ -33,6 +33,8 @@ angular.module('herokuApp')
     var newSlide = theSwiper.createSlide(theHtml);
     newSlide.append();
   };
+
+  console.log($routeParams.id);
 
   var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
@@ -71,7 +73,7 @@ angular.module('herokuApp')
         });
         for (var k=0; k<$scope.gallery[i].images.length; k++) {
           $scope.createNewSlide(thisSwiper, $scope.gallery[i].images[k]);
-          console.log($scope.gallery[i].images[k]);
+          //console.log($scope.gallery[i].images[k]);
         }
       }
     })();

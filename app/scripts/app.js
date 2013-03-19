@@ -7,7 +7,7 @@ angular.module('herokuApp', [])
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/1', {
+      .when('/:id', {
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
