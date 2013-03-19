@@ -97,7 +97,7 @@ angular.module('herokuApp')
       //keyboardControl : true,
       //mousewheelControl : true
     //});
-  })
+  });
 
   $(window).load(function() {
     var theWindow        = $(window),
