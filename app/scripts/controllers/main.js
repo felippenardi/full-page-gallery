@@ -22,12 +22,12 @@ angular.module('herokuApp')
     }
   ];
 
-  var fitFullPage = function _fitFullPage(){
+  $scope.fitFullPage = function _fitFullPage(){
     $('[class*=swiper-n]').css("height",$(window).height());
     $('.swiper-container').css("height",$(window).height());
     $('.swiper-slide').css("height",$(window).height());
   };
-  window.onresize = function() { fitFullPage(); }
+  window.onresize = function() { $scope.fitFullPage(); }
 
   var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
@@ -39,8 +39,8 @@ angular.module('herokuApp')
       grabCursor: true,
       keyboardControl : true,
       onSlideChangeEnd : function() {
-        console.log(mySwiper.activeSlide);
-        console.log(prevSlide);
+        //console.log(mySwiper.activeSlide);
+        //console.log(prevSlide);
         if (prevSlide > mySwiper.activeSlide) {
           console.log("<<<");
         } else {
@@ -60,7 +60,7 @@ angular.module('herokuApp')
       for (var i=0; i<$scope.gallery.length; i++) {
         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
         createNewSlide(mySwiper, html);
-        fitFullPage();
+        $scope.fitFullPage();
         var thisSwiper = $('.swiper-n'+i).swiper({
           pagination : '.pagination-n'+i,
           slidesPerSlide : 1,
@@ -74,7 +74,7 @@ angular.module('herokuApp')
         }
       }
     })();
-    fitFullPage();
+    $scope.fitFullPage();
     (function() { new Swiper(".swiper-nx",{
       pagination : '.pagination-nx',
       slidesPerSlide : 1,
