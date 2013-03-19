@@ -29,6 +29,7 @@ angular.module('herokuApp')
   };
   window.onresize = function() { fitFullPage(); }
 
+  var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
     var mySwiper = $('.swiper-horizontal').swiper({
@@ -38,7 +39,14 @@ angular.module('herokuApp')
       grabCursor: true,
       keyboardControl : true,
       onSlideChangeEnd : function() {
-        //console.log("hamburge");
+        console.log(mySwiper.activeSlide);
+        console.log(prevSlide);
+        if (prevSlide > mySwiper.activeSlide) {
+          console.log("<<<");
+        } else {
+          console.log(">>>");
+        }
+        prevSlide = mySwiper.activeSlide;
       }
     });
 
