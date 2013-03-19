@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('herokuApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope, $location) {
   $scope.awesomeThings = [
     'HTML5 Boilerplate',
     'AngularJS',
@@ -33,6 +33,7 @@ angular.module('herokuApp')
     var newSlide = theSwiper.createSlide(theHtml);
     newSlide.append();
   };
+
   var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
@@ -45,6 +46,7 @@ angular.module('herokuApp')
       onSlideChangeEnd : function() {
         //console.log(mySwiper.activeSlide);
         //console.log(prevSlide);
+        $scope.$apply($location.path("/"+mySwiper.activeSlide));
         if (prevSlide > mySwiper.activeSlide) {
           console.log("<<<");
         } else {

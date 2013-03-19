@@ -7,6 +7,10 @@ angular.module('herokuApp', [])
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
+      .when('/1', {
+        templateUrl: 'partials/main',
+        controller: 'MainCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
