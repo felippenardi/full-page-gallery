@@ -84,7 +84,7 @@ angular.module('herokuApp')
       keyboardControl : true,
       mousewheelControl : true
     })})();
-    mySwiper.swipeTo($routeParams.id,0);
+    mySwiper.swipeTo(($routeParams.id) ? $routeParams.id : 0,0);
   });
 
   $(window).load(function() {
