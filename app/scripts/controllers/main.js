@@ -34,11 +34,13 @@ angular.module('herokuApp')
     newSlide.append();
   };
 
-  $scope.loc = $location;
-  $scope.$watch("(loc.search()).produto", function (val, old) {
-    //mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
+  $scope.$on("routeUpdate", function (event, current) {
     console.log('oi');
   });
+  //$scope.$watch("window.location.href", function (val, old) {
+    ////mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
+    //console.log('oi');
+  //});
 
   //console.log($routeParams.id);
 
