@@ -34,19 +34,17 @@ angular.module('herokuApp')
     newSlide.append();
   };
 
-  $scope.$on("routeUpdate", function (event, current) {
-    console.log('oi');
+  $scope.$on('$routeUpdate', function (scope, next, current) {
+    //Some code
+    console.log("mudou");
+    mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0, 300, false);
   });
-  //$scope.$watch("window.location.href", function (val, old) {
-    ////mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
-    //console.log('oi');
-  //});
 
   //console.log($routeParams.id);
 
   var prevSlide = ($routeParams.id) ? $routeParams.id : 0; // TODO move this variable to an specifc scope
   var mySwiper;
-  console.log(mySwiper);
+  //console.log(mySwiper);
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
     mySwiper = $('.swiper-horizontal').swiper({
