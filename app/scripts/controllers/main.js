@@ -34,7 +34,7 @@ angular.module('herokuApp')
     newSlide.append();
   };
 
-  console.log($routeParams.id);
+  //console.log($routeParams.id);
 
   var prevSlide = 0; // TODO move this variable to an specifc scope
   $(function(){
@@ -57,7 +57,6 @@ angular.module('herokuApp')
         prevSlide = mySwiper.activeSlide;
       }
     });
-
 
     (function() {
       for (var i=0; i<$scope.gallery.length; i++) {
@@ -85,13 +84,13 @@ angular.module('herokuApp')
       keyboardControl : true,
       mousewheelControl : true
     })})();
+    mySwiper.swipeTo($routeParams.id,0);
   });
 
   $(window).load(function() {
     var theWindow        = $(window),
     $bg              = $(".swiper-slide img"),
     aspectRatio      = $bg.width() / $bg.height();
-
     function resizeBg() {
       if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
         $bg
