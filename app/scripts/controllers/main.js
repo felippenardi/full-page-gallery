@@ -34,12 +34,20 @@ angular.module('herokuApp')
     newSlide.append();
   };
 
+  $scope.loc = $location;
+  $scope.$watch("(loc.search()).produto", function (val, old) {
+    //mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
+    console.log('oi');
+  });
+
   //console.log($routeParams.id);
 
-  var prevSlide = 0; // TODO move this variable to an specifc scope
+  var prevSlide = ($routeParams.id) ? $routeParams.id : 0; // TODO move this variable to an specifc scope
+  var mySwiper;
+  console.log(mySwiper);
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
-    var mySwiper = $('.swiper-horizontal').swiper({
+    mySwiper = $('.swiper-horizontal').swiper({
       pagination : '.pagination-horizontal',
       slidesPerSlide : 1,
       initialSlide : 0,
@@ -48,16 +56,17 @@ angular.module('herokuApp')
       onSlideChangeEnd : function() {
         //console.log(mySwiper.activeSlide);
         //console.log(prevSlide);
-        $scope.$apply($location.path("/"+mySwiper.activeSlide));
+        $scope.$apply($location.search('projeto',mySwiper.activeSlide));
         if (prevSlide > mySwiper.activeSlide) {
-          console.log("<<<");
+          console.log("<<< ... "+mySwiper.activeSlide+'<'+prevSlide);
         } else {
-          console.log(">>>");
+          console.log(">>> ... "+mySwiper.activeSlide+'>'+prevSlide);
         }
         prevSlide = mySwiper.activeSlide;
       }
     });
 
+  console.log(mySwiper);
     (function() {
       for (var i=0; i<$scope.gallery.length; i++) {
         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
@@ -84,9 +93,10 @@ angular.module('herokuApp')
       keyboardControl : true,
       mousewheelControl : true
     })})();
-    mySwiper.swipeTo(($routeParams.id) ? $routeParams.id : 0,0);
+    mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
   });
 
+  console.log(mySwiper);
   $(window).load(function() {
     var theWindow        = $(window),
     $bg              = $(".swiper-slide img"),
@@ -104,6 +114,7 @@ angular.module('herokuApp')
     }
     theWindow.resize(resizeBg).trigger("resize");
   });
+
 
   (function konamiActivate() {
     var easter_egg = new Konami();

@@ -5,11 +5,9 @@ angular.module('herokuApp', [])
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
-        controller: 'MainCtrl'
-      })
-      .when('/:id', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        reloadOnSearch: false
+
       })
       .otherwise({
         redirectTo: '/'
