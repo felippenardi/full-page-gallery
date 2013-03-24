@@ -39,6 +39,8 @@ angular.module('herokuApp')
   var prevSlide = ($routeParams.id) ? $routeParams.id : 0; // TODO move this variable to an specifc scope
   var mySwiper;
   //console.log(mySwiper);
+
+
   $(function(){
     //-var mySwiper = new Swiper('.swiper-n1',options);
     mySwiper = $('.swiper-horizontal').swiper({
@@ -76,6 +78,7 @@ angular.module('herokuApp')
             mousewheelControl : true,
             onSlideChangeEnd : function() {
              console.log('oi');
+             console.log($scope.verticalSwipers.swipers[i]);
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
@@ -122,9 +125,9 @@ angular.module('herokuApp')
   //mySwiper.swipeTo(projeto, 300, false);
   //$scope.verticalSwipers.swipers[projeto].swipeTo(foto);
 
-  (function konamiActivate() {
-    var easter_egg = new Konami();
-    easter_egg.code = function() { alert('Konami code!'); }
-    easter_egg.load();
-  })();
+  //(function konamiActivate() {
+    //var easter_egg = new Konami();
+    //easter_egg.code = function() { alert('Konami code!'); }
+    //easter_egg.load();
+  //})();
 });
