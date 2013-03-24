@@ -50,7 +50,7 @@ angular.module('herokuApp')
       onSlideChangeEnd : function() {
         //console.log(mySwiper.activeSlide);
         //console.log(prevSlide);
-        $scope.$apply($location.search('projeto',mySwiper.activeSlide));
+        //$scope.$apply($location.search('projeto',mySwiper.activeSlide));
         if (prevSlide > mySwiper.activeSlide) {
           console.log("<<< ... "+mySwiper.activeSlide+'<'+prevSlide);
         } else {
@@ -81,6 +81,7 @@ angular.module('herokuApp')
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
             $scope.createNewSlide($scope.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
             //console.log($scope.gallery[i].images[k]);
+            console.log($scope.verticalSwipers.swipers[i]);
           }
         }
       }
@@ -88,15 +89,6 @@ angular.module('herokuApp')
     $scope.verticalSwipers.generate();
 
     $scope.fitFullPage();
-    (function() {
-      new Swiper(".swiper-nx",{
-        pagination : '.pagination-nx',
-        slidesPerSlide : 1,
-        mode: 'vertical',
-        keyboardControl : true,
-        mousewheelControl : true
-      })
-    })();
   });
 
   $(window).load(function() {
