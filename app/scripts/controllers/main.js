@@ -34,13 +34,7 @@ angular.module('herokuApp')
     newSlide.append();
   };
 
-  $scope.$on('$routeUpdate', function (scope, next, current) {
-    //Some code
-    console.log("mudou");
-    mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0, 300, false);
-  });
 
-  //console.log($routeParams.id);
 
   var prevSlide = ($routeParams.id) ? $routeParams.id : 0; // TODO move this variable to an specifc scope
   var mySwiper;
@@ -66,37 +60,45 @@ angular.module('herokuApp')
       }
     });
 
-  console.log(mySwiper);
-    (function() {
-      for (var i=0; i<$scope.gallery.length; i++) {
-        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
-        $scope.createNewSlide(mySwiper, html);
-        $scope.fitFullPage();
-        var thisSwiper = $('.swiper-n'+i).swiper({
-          pagination : '.pagination-n'+i,
-          slidesPerSlide : 1,
-          mode: 'vertical',
-          keyboardControl : true,
-          mousewheelControl : true
-        });
-        for (var k=0; k<$scope.gallery[i].images.length; k++) {
-          $scope.createNewSlide(thisSwiper, $scope.gallery[i].images[k]);
-          //console.log($scope.gallery[i].images[k]);
+    $scope.verticalSwipers = {
+      swipers: [],
+      generate: function() {
+        for (var i=0; i<$scope.gallery.length; i++) {
+          var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
+          $scope.createNewSlide(mySwiper, html);
+          $scope.fitFullPage();
+
+          $scope.verticalSwipers.swipers[i] = $('.swiper-n'+i).swiper({
+            pagination : '.pagination-n'+i,
+            slidesPerSlide : 1,
+            mode: 'vertical',
+            keyboardControl : true,
+            mousewheelControl : true,
+            onSlideChangeEnd : function() {
+             console.log('oi');
+            }
+          });
+          for (var k=0; k<$scope.gallery[i].images.length; k++) {
+            $scope.createNewSlide($scope.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
+            //console.log($scope.gallery[i].images[k]);
+          }
         }
       }
-    })();
+    };
+    $scope.verticalSwipers.generate();
+
     $scope.fitFullPage();
-    (function() { new Swiper(".swiper-nx",{
-      pagination : '.pagination-nx',
-      slidesPerSlide : 1,
-      mode: 'vertical',
-      keyboardControl : true,
-      mousewheelControl : true
-    })})();
-    mySwiper.swipeTo(($routeParams.projeto) ? $routeParams.projeto : 0,0, false);
+    (function() {
+      new Swiper(".swiper-nx",{
+        pagination : '.pagination-nx',
+        slidesPerSlide : 1,
+        mode: 'vertical',
+        keyboardControl : true,
+        mousewheelControl : true
+      })
+    })();
   });
 
-  console.log(mySwiper);
   $(window).load(function() {
     var theWindow        = $(window),
     $bg              = $(".swiper-slide img"),
@@ -115,6 +117,18 @@ angular.module('herokuApp')
     theWindow.resize(resizeBg).trigger("resize");
   });
 
+  $scope.$on('$routeUpdate', function (scope, next, current) {
+    //var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
+    //var foto = ($routeParams.foto) ? $routeParams.foto : 0;
+    //mySwiper.swipeTo(projeto, 300, false);
+    //$scope.verticalSwipers.swipers[projeto].swipeTo(foto);
+  });
+
+  // TODO REMOVE GLOBAL VARIABLE
+  //var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
+  //var foto = ($routeParams.foto) ? $routeParams.foto : 0;
+  //mySwiper.swipeTo(projeto, 300, false);
+  //$scope.verticalSwipers.swipers[projeto].swipeTo(foto);
 
   (function konamiActivate() {
     var easter_egg = new Konami();
