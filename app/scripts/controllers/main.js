@@ -36,63 +36,115 @@ angular.module('herokuApp')
 
 
 
-  var prevSlide = ($routeParams.id) ? $routeParams.id : 0; // TODO move this variable to an specifc scope
-  var mySwiper;
+  //var prevSlide = ($routeParams.projeto) ? $routeParams.projeto : 0; // TODO move this variable to an specifc scope
+  //var mySwiper;
   //console.log(mySwiper);
 
 
-  $(function(){
-    //-var mySwiper = new Swiper('.swiper-n1',options);
-    mySwiper = $('.swiper-horizontal').swiper({
-      pagination : '.pagination-horizontal',
-      slidesPerSlide : 1,
-      initialSlide : 0,
-      grabCursor: true,
-      keyboardControl : true,
-      onSlideChangeEnd : function() {
-        //console.log(mySwiper.activeSlide);
-        //console.log(prevSlide);
-        //$scope.$apply($location.search('projeto',mySwiper.activeSlide));
-        if (prevSlide > mySwiper.activeSlide) {
-          console.log("<<< ... "+mySwiper.activeSlide+'<'+prevSlide);
-        } else {
-          console.log(">>> ... "+mySwiper.activeSlide+'>'+prevSlide);
-        }
-        prevSlide = mySwiper.activeSlide;
-      }
-    });
+  //$(function(){
+    ////-var mySwiper = new Swiper('.swiper-n1',options);
+    //mySwiper = $('.swiper-horizontal').swiper({
+      //pagination : '.pagination-horizontal',
+      //slidesPerSlide : 1,
+      //initialSlide : 0,
+      //grabCursor: true,
+      //keyboardControl : true,
+      //onSlideChangeEnd : function() {
+        ////console.log(mySwiper.activeSlide);
+        ////console.log(prevSlide);
+        ////$scope.$apply($location.search('projeto',mySwiper.activeSlide));
+        //if (prevSlide > mySwiper.activeSlide) {
+          //console.log("<<< ... "+mySwiper.activeSlide+'<'+prevSlide);
+        //} else {
+          //console.log(">>> ... "+mySwiper.activeSlide+'>'+prevSlide);
+        //}
+        //prevSlide = mySwiper.activeSlide;
+      //}
+    //});
 
-    $scope.verticalSwipers = {
+    //$scope.verticalSwipers = {
+      //swipers: [],
+      //generate: function() {
+        //for (var i=0; i<$scope.gallery.length; i++) {
+          //var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
+          //$scope.createNewSlide(mySwiper, html);
+          //$scope.fitFullPage();
+
+          //$scope.verticalSwipers.swipers[i] = $('.swiper-n'+i).swiper({
+            //pagination : '.pagination-n'+i,
+            //slidesPerSlide : 1,
+            //mode: 'vertical',
+            //keyboardControl : true,
+            //mousewheelControl : true,
+            //onSlideChangeEnd : function() {
+             //console.log('oi');
+             //console.log($scope.verticalSwipers.swipers[i]);
+            //}
+          //});
+          //for (var k=0; k<$scope.gallery[i].images.length; k++) {
+            //$scope.createNewSlide($scope.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
+            ////console.log($scope.gallery[i].images[k]);
+            //console.log($scope.verticalSwipers.swipers[i]);
+          //}
+        //}
+      //}
+    //};
+    //$scope.verticalSwipers.generate();
+
+    //$scope.fitFullPage();
+  //});
+
+  $scope.swipers = {
+    horizontalSwiper: {
+      prevSlide:($routeParams.projeto) ? $routeParams.projeto : 0,
+      swiper:
+        $('.swiper-horizontal').swiper({
+          pagination : '.pagination-horizontal',
+          slidesPerSlide : 1,
+          initialSlide : 0,
+          grabCursor: true,
+          keyboardControl : true,
+          onSlideChangeEnd : function() {
+            if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
+              console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
+            } else {
+              console.log(">>> ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'>'+$scope.swipers.horizontalSwiper.prevSlide);
+            }
+            $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+          }
+        })
+    },
+    verticalSwipers: {
       swipers: [],
       generate: function() {
         for (var i=0; i<$scope.gallery.length; i++) {
           var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
-          $scope.createNewSlide(mySwiper, html);
+          $scope.createNewSlide($scope.swipers.horizontalSwiper.swiper, html);
           $scope.fitFullPage();
 
-          $scope.verticalSwipers.swipers[i] = $('.swiper-n'+i).swiper({
+          $scope.swipers.verticalSwipers.swipers[i] = $('.swiper-n'+i).swiper({
             pagination : '.pagination-n'+i,
             slidesPerSlide : 1,
             mode: 'vertical',
             keyboardControl : true,
             mousewheelControl : true,
             onSlideChangeEnd : function() {
-             console.log('oi');
-             console.log($scope.verticalSwipers.swipers[i]);
+              console.log('oi');
+              console.log($scope.swipers.verticalSwipers.swipers[i]);
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
-            $scope.createNewSlide($scope.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
-            //console.log($scope.gallery[i].images[k]);
-            console.log($scope.verticalSwipers.swipers[i]);
+            $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
+            console.log($scope.swipers.verticalSwipers.swipers[i]);
           }
         }
       }
-    };
-    $scope.verticalSwipers.generate();
+    }
+  }
+  $scope.swipers.verticalSwipers.generate();
 
-    $scope.fitFullPage();
-  });
+  $scope.fitFullPage();
+
 
   $(window).load(function() {
     var theWindow        = $(window),
