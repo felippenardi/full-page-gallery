@@ -177,10 +177,4 @@ angular.module('herokuApp')
   var foto = ($routeParams.foto) ? $routeParams.foto : 0;
   $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
   $scope.verticalSwipers.swipers[projeto].swipeTo(foto);
-
-  //(function konamiActivate() {
-    //var easter_egg = new Konami();
-    //easter_egg.code = function() { alert('Konami code!'); }
-    //easter_egg.load();
-  //})();
 });
