@@ -166,10 +166,10 @@ angular.module('herokuApp')
   });
 
   $scope.$on('$routeUpdate', function (scope, next, current) {
-    //var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
-    //var foto = ($routeParams.foto) ? $routeParams.foto : 0;
-    //mySwiper.swipeTo(projeto, 300, false);
-    //$scope.verticalSwipers.swipers[projeto].swipeTo(foto);
+    var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
+    var foto = ($routeParams.foto) ? $routeParams.foto : 0;
+    $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
+    $scope.verticalSwipers.swipers[projeto].swipeTo(foto);
   });
 
   // TODO REMOVE GLOBAL VARIABLE
