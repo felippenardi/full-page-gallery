@@ -105,6 +105,7 @@ angular.module('herokuApp')
           grabCursor: true,
           keyboardControl : true,
           onSlideChangeEnd : function() {
+            $scope.$apply($location.search('projeto',$scope.swipers.horizontalSwiper.swiper.activeSlide));
             if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
               console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
             } else {
