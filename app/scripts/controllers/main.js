@@ -118,7 +118,8 @@ angular.module('herokuApp')
     verticalSwipers: {
       swipers: [],
       generate: function() {
-        for (var i=0; i<$scope.gallery.length; i++) {
+        var i = 0;
+        for (i=0; i<$scope.gallery.length; i++) {
           var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
           $scope.createNewSlide($scope.swipers.horizontalSwiper.swiper, html);
           $scope.fitFullPage();
@@ -129,7 +130,8 @@ angular.module('herokuApp')
             mode: 'vertical',
             keyboardControl : true,
             mousewheelControl : true,
-            onSlideChangeEnd : function() {
+            onSlideChangeEnd : function(i) {
+              $scope.$apply($location.search('foto',i.activeSlide));
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
@@ -166,12 +168,12 @@ angular.module('herokuApp')
     var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
     var foto = ($routeParams.foto) ? $routeParams.foto : 0;
     $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
-    $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto);
+    $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
   });
 
   // TODO REMOVE GLOBAL VARIABLE
   var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
   var foto = ($routeParams.foto) ? $routeParams.foto : 0;
   $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
-  $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto);
+  $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
 });
