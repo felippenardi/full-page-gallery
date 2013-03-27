@@ -130,13 +130,10 @@ angular.module('herokuApp')
             keyboardControl : true,
             mousewheelControl : true,
             onSlideChangeEnd : function() {
-              console.log('oi');
-              console.log($scope.swipers.verticalSwipers.swipers[i]);
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
-            console.log($scope.swipers.verticalSwipers.swipers[i]);
           }
         }
       }
