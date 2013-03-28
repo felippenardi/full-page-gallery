@@ -131,10 +131,9 @@ angular.module('herokuApp')
             keyboardControl : false,
             mousewheelControl : true,
             onSlideChangeStart: function(i) {
-              i.keyboardControl = true;
+              $scope.$apply($location.search('foto',i.activeSlide));
             },
             onSlideChangeEnd : function(i) {
-              i.keyboardControl = true;
               $scope.$apply($location.search('foto',i.activeSlide));
             }
           });
@@ -146,27 +145,46 @@ angular.module('herokuApp')
     }
   }
   $scope.swipers.verticalSwipers.generate();
+  console.log($scope.swipers.verticalSwipers.swipers[0].currentSlide());
+
+  $(document).keydown(function (e) {
+    if(!e) {
+      e = window.event;
+    }
+    var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+    var y = $scope.swipers.verticalSwipers.swipers[x];
+    switch(e.keyCode) {
+      case 38:
+        console.log('up');
+        y.swipePrev();
+        break;
+      case 40:
+        console.log('down');
+        y.swipeNext();
+        break;
+    }
+  });
 
   $scope.fitFullPage();
 
 
-  $(window).load(function() {
-    var theWindow        = $(window),
-    $bg              = $(".swiper-slide img"),
-    aspectRatio      = $bg.width() / $bg.height();
-    function resizeBg() {
-      if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-        $bg
-        .removeClass()
-        .addClass('bgheight');
-      } else {
-        $bg
-        .removeClass()
-        .addClass('bgwidth');
-      }
-    }
-    theWindow.resize(resizeBg).trigger("resize");
-  });
+  //$(window).load(function() {
+    //var theWindow        = $(window),
+    //$bg              = $(".swiper-slide img"),
+    //aspectRatio      = $bg.width() / $bg.height();
+    //function resizeBg() {
+      //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+        //$bg
+        //.removeClass()
+        //.addClass('bgheight');
+      //} else {
+        //$bg
+        //.removeClass()
+        //.addClass('bgwidth');
+      //}
+    //}
+    //theWindow.resize(resizeBg).trigger("resize");
+  //});
 
   $scope.$on('$routeUpdate', function (scope, next, current) {
     var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
