@@ -104,14 +104,19 @@ angular.module('herokuApp')
           initialSlide : 0,
           grabCursor: true,
           keyboardControl : true,
-          onSlideChangeEnd : function() {
-            $scope.$apply($location.search('projeto',$scope.swipers.horizontalSwiper.swiper.activeSlide));
+          onSlideChangeStart : function() {
+            var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+            var y = $scope.swipers.verticalSwipers.swipers[x].activeSlide;
+            $scope.$apply($location.search({'projeto': x, 'foto' : y}));
+
             if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
               console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
             } else {
               console.log(">>> ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'>'+$scope.swipers.horizontalSwiper.prevSlide);
             }
             $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+          },
+          onSlideChangeEnd : function() {
           }
         })
     },
@@ -134,7 +139,6 @@ angular.module('herokuApp')
               $scope.$apply($location.search('foto',i.activeSlide));
             },
             onSlideChangeEnd : function(i) {
-              $scope.$apply($location.search('foto',i.activeSlide));
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
@@ -166,25 +170,6 @@ angular.module('herokuApp')
   });
 
   $scope.fitFullPage();
-
-
-  //$(window).load(function() {
-    //var theWindow        = $(window),
-    //$bg              = $(".swiper-slide img"),
-    //aspectRatio      = $bg.width() / $bg.height();
-    //function resizeBg() {
-      //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-        //$bg
-        //.removeClass()
-        //.addClass('bgheight');
-      //} else {
-        //$bg
-        //.removeClass()
-        //.addClass('bgwidth');
-      //}
-    //}
-    //theWindow.resize(resizeBg).trigger("resize");
-  //});
 
   $scope.$on('$routeUpdate', function (scope, next, current) {
     var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
