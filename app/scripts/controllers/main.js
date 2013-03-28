@@ -17,8 +17,8 @@ angular.module('herokuApp')
       "images": ["http://placekitten.com/2001/2000", "http://placekitten.com/1001/1000", "http://placekitten.com/1001/1005", "http://placekitten.com/1011/1005", "http://placekitten.com/1150/1055", "http://placekitten.com/1150/1080"]
     },
     {
-      "name": "Doggies",
-      "images": ["http://placedog.com/2001/2000", "http://placedog.com/1001/1000", "http://placedog.com/1001/1005", "http://placedog.com/1011/1005", "http://placedog.com/1150/1055", "http://placedog.com/1150/1080"]
+      "name": "Apes",
+      "images": ["http://placeape.com/1201/1100", "http://placeape.com/1001/1000", "http://placeape.com/1001/1005", "http://placeape.com/1011/1005", "http://placeape.com/1150/1055", "http://placeape.com/1050/1200"]
     }
   ];
 
@@ -82,7 +82,9 @@ angular.module('herokuApp')
             }
           });
           for (var k=0; k<$scope.gallery[i].images.length; k++) {
-            $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], $scope.gallery[i].images[k]);
+            var html = $scope.gallery[i].images[k];
+            html = '<img src="'+$scope.gallery[i].images[k]+'">'
+            $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
           }
         }
       }
