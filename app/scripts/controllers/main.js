@@ -128,9 +128,13 @@ angular.module('herokuApp')
             pagination : '.pagination-n'+i,
             slidesPerSlide : 1,
             mode: 'vertical',
-            keyboardControl : true,
+            keyboardControl : false,
             mousewheelControl : true,
+            onSlideChangeStart: function(i) {
+              i.keyboardControl = true;
+            },
             onSlideChangeEnd : function(i) {
+              i.keyboardControl = true;
               $scope.$apply($location.search('foto',i.activeSlide));
             }
           });
