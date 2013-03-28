@@ -111,6 +111,47 @@ angular.module('herokuApp')
     }
   });
 
+  (function setimgwidth() {
+    var $bg              = $(".swiper-slide img");
+    var theWindow        = $(window);
+    var aspectRatio      = $bg.width() / $bg.height();
+    if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+      $bg
+      .removeClass()
+      .addClass('bgheight');
+    } else {
+      $bg
+      .removeClass()
+      .addClass('bgwidth');
+    }
+  })();
+  $(window).load(function() {
+    var theWindow        = $(window),
+    $bg              = $(".swiper-slide img"),
+    aspectRatio      = $bg.width() / $bg.height();
+
+    function resizeBg() {
+      if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+        $bg
+        .removeClass()
+        .addClass('bgheight');
+      } else {
+        $bg
+        .removeClass()
+        .addClass('bgwidth');
+      }
+    }
+    var timer;
+    function delayResize(){
+        clearTimeout(timer)
+        timer = setTimeout(function() {
+            console.log("teste");
+            resizeBg();
+        },400);
+    }
+    theWindow.resize(delayResize).trigger("resize");
+  });
+
   $scope.fitFullPage();
 
   $scope.$on('$routeUpdate', function (scope, next, current) {
