@@ -1,2 +1,60 @@
 /* Will be compiled down to a single stylesheet with your sass files */
 body {background:#ccc;}
+
+
+.top-bar {
+  position:absolute;
+  height:75px;
+  width:100%;
+  z-index:3000;
+  background:#000000;
+  background:rgba(0,0,0,0.8)
+}
+
+.logo {
+  position: absolute;
+  top:0;
+  left:0;
+}
+.menu {
+  display:inline-block;
+  position:absolute;
+  top:5px;
+  right:5px;
+}
+.menu li {
+  display:inline-block;
+}
+.menu li a {
+  color:#FFF;
+  font-family:sans-serif;
+  text-decoration:none;
+  padding:8px 10px;
+}
+@media screen and (max-width: 600px) {
+  .menu li a {
+    font-size:12px;
+    padding:5px 10px;
+  }
+  .logo {
+    position:relative;
+    left:-20px;
+  }
+  .logo img {
+    width:175px;
+    height:66px;
+  }
+}
+
+/* Clear Fix */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
