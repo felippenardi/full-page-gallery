@@ -74,6 +74,38 @@ body {background:#ccc;}
   bottom:0;
   right:0;
 }
+.description-box {
+  z-index:3000;
+  position:absolute;
+  bottom:67px;
+  right:0;
+  width:374px;
+  color:#FFF;
+
+
+  background:#000000;
+  background:rgba(0,0,0,0.65)
+
+}
+
+.description-box .box {
+  vertical-align:text-top;
+  display:inline-block;
+  width:187px;
+  padding:40px;
+  font-family:sans-serif;
+  font-weight:normal;
+}
+.description-box p {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+.description-box h1 {
+  font-size:16px;
+  font-weight:normal;
+  margin-bottom:0;
+}
+
 .project, .nav-left, .nav-down, .nav-right {
   display:inline-block;
   height:66px;
@@ -93,6 +125,7 @@ body {background:#ccc;}
 .nav-left, .nav-down, .nav-right {
   width:60px;
   cursor: pointer;
+  background:rgba(0,0,0,0.45)
   /*height:20px;*/
 }
 .nav-left span, .nav-down span, .nav-right span {
