@@ -1,14 +1,36 @@
 /* Will be compiled down to a single stylesheet with your sass files */
+
+/* Clear Fix */
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+/**/
+
+/*box sizing*/
+div {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 body {background:#ccc;}
 
 
 .top-bar {
   position:absolute;
-  height:75px;
+  height:85px;
   width:100%;
   z-index:3000;
   background:#000000;
-  background:rgba(0,0,0,0.8)
+  background:rgba(0,0,0,0.65)
 }
 
 .logo {
@@ -46,15 +68,64 @@ body {background:#ccc;}
   }
 }
 
-/* Clear Fix */
-.group:before,
-.group:after {
-  content: "";
-  display: table;
+.project-box {
+  z-index:3000;
+  position:absolute;
+  bottom:0;
+  right:0;
 }
-.group:after {
-  clear: both;
+.project, .nav-left, .nav-down, .nav-right {
+  display:inline-block;
+  height:66px;
+  margin-left:1px;
+  font-family: sans-serif;
+  color:#FFF;
+  font-size:14px;
+  font-weight:normal;
+
+  padding: 21px 21px;
+  position: relative;
+  top: 4px;
+
+  background:#000000;
+  background:rgba(0,0,0,0.65)
 }
-.group {
-  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+.nav-left, .nav-down, .nav-right {
+  width:60px;
+  cursor: pointer;
+  /*height:20px;*/
 }
+.nav-left span, .nav-down span, .nav-right span {
+  width:21px; height:21px;
+  position: relative;
+  display:block;
+}
+
+.project {
+  padding-left:45px;
+}
+.project:hover { cursor: pointer }
+.project p:before {
+  content:'';
+  display:block;
+  position:absolute;
+  top:0px;
+  left:-26px;
+  width:21px; height:21px;
+  background:url('../images/cadas_sprites.png') no-repeat -24px -25px;;
+}
+.project.active p:before {
+  background: url('../images/cadas_sprites.png') no-repeat -24px -96px;
+  top:7px;
+}
+
+.project p {
+  position:relative;
+  top:-7px;
+}
+.nav-left span { background: url('../images/cadas_sprites.png') no-repeat -88px -21px; right: -1px; top: 6px; }
+.nav-left:hover span { background: url('../images/cadas_sprites.png') no-repeat -88px -85px; }
+.nav-right span {background:url('../images/cadas_sprites.png') no-repeat -156px -21px; left:4px; top:6px;}
+.nav-right:hover span {background:url('../images/cadas_sprites.png') no-repeat -156px -85px;}
+.nav-down span {background:url('../images/cadas_sprites.png') no-repeat -213px -28px; top: 11px; right: 2px;}
+.nav-down:hover span {background:url('../images/cadas_sprites.png') no-repeat -213px -92px;}
