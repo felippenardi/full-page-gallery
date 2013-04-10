@@ -56,7 +56,8 @@
             img(src='http://placekitten.com/1150/1080', alt='')
 
 .project-box
-  .project
+  .project(ng-click="toggle()", ng-class="isActive")
+    span
     p Residência Itaipava
   .nav-left
     span
@@ -64,9 +65,8 @@
     span
   .nav-right
     span
-.description-box
+.description-box(ng-show="isVisible")
   .box
-    h1 Projeto
     p Residência em Itaipava
 
     h1 Ano

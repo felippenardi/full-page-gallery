@@ -32,6 +32,13 @@ angular.module('herokuApp')
   };
   window.onresize = function() { $scope.fitFullPage(); }
 
+  $scope.toggle = function() {
+    $scope.isVisible = ! $scope.isVisible;
+    if ($scope.isVisible === true) {
+      $scope.isActive = "active";
+    } else { $scope.isActive = ""; }
+  }
+
   $scope.createNewSlide = function(theSwiper, theHtml) {
     var newSlide = theSwiper.createSlide(theHtml);
     newSlide.append();
