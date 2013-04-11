@@ -35,6 +35,47 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         }
     ];
 
+    (function setimgwidth() {
+        var $bg              = $(".swiper-slide img");
+        var theWindow        = $(window);
+        var aspectRatio      = $bg.width() / $bg.height();
+        if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+            $bg
+            .removeClass()
+            .addClass('bgheight');
+        } else {
+            $bg
+            .removeClass()
+            .addClass('bgwidth');
+        }
+    })();
+    $(window).load(function() {
+        var theWindow        = $(window),
+        $bg              = $(".swiper-slide img"),
+        aspectRatio      = $bg.width() / $bg.height();
+
+        function resizeBg() {
+            if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+                $bg
+                .removeClass()
+                .addClass('bgheight');
+            } else {
+                $bg
+                .removeClass()
+                .addClass('bgwidth');
+            }
+        }
+        var timer;
+        function delayResize(){
+            clearTimeout(timer)
+            timer = setTimeout(function() {
+                console.log("teste");
+                resizeBg();
+            },400);
+        }
+        theWindow.resize(delayResize).trigger("resize");
+    });
+
     $scope.initialize = function() {
         $scope.fitFullPage = function _fitFullPage(){
             $('[class*=swiper-n]').css("height",$(window).height());
@@ -85,7 +126,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                 swipers: [],
                 generate: function() {
                     var i = 0;
-                    for (i=0; i<$scope.gallery.length; i++) {
+                    console.log(42);
+                    console.log($scope.content[0].projetos[0].galeria[0].low_res);
+                    for (i=0; i<$scope.content[0].projetos.length; i++) {
                         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
                         $scope.createNewSlide($scope.swipers.horizontalSwiper.swiper, html);
                         $scope.fitFullPage();
@@ -102,9 +145,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                             onSlideChangeEnd : function(i) {
                             }
                         });
-                        for (var k=0; k<$scope.gallery[i].images.length; k++) {
-                            var html = $scope.gallery[i].images[k];
-                            html = '<img src="'+$scope.gallery[i].images[k]+'">'
+                        for (var k=0; k<$scope.content[0].projetos[i].galeria.length; k++) {
+                            var html = $scope.content[0].projetos[i].galeria[k].low_res;
+                            html = '<img src="'+$scope.content[0].projetos[i].galeria[k].low_res+'">'
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
@@ -132,46 +175,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
             }
         });
 
-        (function setimgwidth() {
-            var $bg              = $(".swiper-slide img");
-            var theWindow        = $(window);
-            var aspectRatio      = $bg.width() / $bg.height();
-            if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-                $bg
-                .removeClass()
-                .addClass('bgheight');
-            } else {
-                $bg
-                .removeClass()
-                .addClass('bgwidth');
-            }
-        })();
-        $(window).load(function() {
-            var theWindow        = $(window),
-            $bg              = $(".swiper-slide img"),
-            aspectRatio      = $bg.width() / $bg.height();
-
-            function resizeBg() {
-                if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-                    $bg
-                    .removeClass()
-                    .addClass('bgheight');
-                } else {
-                    $bg
-                    .removeClass()
-                    .addClass('bgwidth');
-                }
-            }
-            var timer;
-            function delayResize(){
-                clearTimeout(timer)
-                timer = setTimeout(function() {
-                    console.log("teste");
-                    resizeBg();
-                },400);
-            }
-            theWindow.resize(delayResize).trigger("resize");
-        });
 
         $scope.fitFullPage();
 
