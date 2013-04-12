@@ -35,46 +35,46 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         }
     ];
 
-    (function setimgwidth() {
-        var $bg              = $(".swiper-slide img");
-        var theWindow        = $(window);
-        var aspectRatio      = $bg.width() / $bg.height();
-        if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-            $bg
-            .removeClass()
-            .addClass('bgheight');
-        } else {
-            $bg
-            .removeClass()
-            .addClass('bgwidth');
-        }
-    })();
-    $(window).load(function() {
-        var theWindow        = $(window),
-        $bg              = $(".swiper-slide img"),
-        aspectRatio      = $bg.width() / $bg.height();
+    //(function setimgwidth() {
+        //var $bg              = $(".swiper-slide img");
+        //var theWindow        = $(window);
+        //var aspectRatio      = $bg.width() / $bg.height();
+        //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+            //$bg
+            //.removeClass()
+            //.addClass('bgheight');
+        //} else {
+            //$bg
+            //.removeClass()
+            //.addClass('bgwidth');
+        //}
+    //})();
+    //$(window).load(function() {
+        //var theWindow        = $(window),
+        //$bg              = $(".swiper-slide img"),
+        //aspectRatio      = $bg.width() / $bg.height();
 
-        function resizeBg() {
-            if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-                $bg
-                .removeClass()
-                .addClass('bgheight');
-            } else {
-                $bg
-                .removeClass()
-                .addClass('bgwidth');
-            }
-        }
-        var timer;
-        function delayResize(){
-            clearTimeout(timer)
-            timer = setTimeout(function() {
-                console.log("teste");
-                resizeBg();
-            },400);
-        }
-        theWindow.resize(delayResize).trigger("resize");
-    });
+        //function resizeBg() {
+            //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
+                //$bg
+                //.removeClass()
+                //.addClass('bgheight');
+            //} else {
+                //$bg
+                //.removeClass()
+                //.addClass('bgwidth');
+            //}
+        //}
+        //var timer;
+        //function delayResize(){
+            //clearTimeout(timer)
+            //timer = setTimeout(function() {
+                //console.log("teste");
+                //resizeBg();
+            //},400);
+        //}
+        //theWindow.resize(delayResize).trigger("resize");
+    //});
 
     $scope.initialize = function() {
         $scope.fitFullPage = function _fitFullPage(){
@@ -147,7 +147,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                         });
                         for (var k=0; k<$scope.content[0].projetos[i].galeria.length; k++) {
                             var html = $scope.content[0].projetos[i].galeria[k].low_res;
-                            html = '<img src="'+$scope.content[0].projetos[i].galeria[k].low_res+'">'
+                            html = '<div style="position:absolute;top:0;left:0;bottom:0;top:0;background: url('+html+') no-repeat center center fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;width:100%;height:100%;"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
