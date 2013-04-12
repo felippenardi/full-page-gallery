@@ -17,23 +17,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         })
     };
     $scope.populate();
-    $scope.gallery = [
-        {
-            "name": "Bears",
-            //"images": ["http://placebear.com/2001/2000", "http://placebear.com/2000/2000", "http://placebear.com/2001/2001", "http://placebear.com/2001/2010"]
-                "images": ["images/exemplo.png", "images/exemplo.png"]
-        },
-        {
-            "name": "Kittens",
-            //"images": ["http://placekitten.com/2001/2000", "http://placekitten.com/1001/1000", "http://placekitten.com/1001/1005", "http://placekitten.com/1011/1005", "http://placekitten.com/1150/1055", "http://placekitten.com/1150/1080"]
-                "images": ["images/exemplo.png", "images/exemplo.png"]
-        },
-        {
-            "name": "Apes",
-            //"images": ["http://placeape.com/1201/1100", "http://placeape.com/1001/1000", "http://placeape.com/1001/1005", "http://placeape.com/1011/1005", "http://placeape.com/1150/1055", "http://placeape.com/1050/1200"]
-                "images": ["images/exemplo.png", "images/exemplo.png"]
-        }
-    ];
 
     //(function setimgwidth() {
         //var $bg              = $(".swiper-slide img");
