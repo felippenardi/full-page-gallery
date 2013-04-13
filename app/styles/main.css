@@ -184,6 +184,7 @@ body {background:#ccc;}
     left: 0;
     top: 86px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
   }
   .description-box .box {
     padding: 20px 15px;
