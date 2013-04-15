@@ -180,13 +180,14 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
 
     }
     $scope.goLeft = function() {
-        console.log($scope.swipers.horizontalSwiper.swiper.activeSlide);
         $scope.swipers.horizontalSwiper.swiper.swipePrev();
     }
     $scope.goRight = function() {
-        console.log($scope.swipers.horizontalSwiper.swiper.activeSlide);
-        $scope.swipers.horizontalSwiper.swiper.swipePrev();
+        $scope.swipers.horizontalSwiper.swiper.swipeNext();
     }
-
-
+    $scope.goDown = function() {
+        var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+        var y = $scope.swipers.verticalSwipers.swipers[x];
+        y.swipeNext();
+    }
 });
