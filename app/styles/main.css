@@ -48,9 +48,13 @@ body {background:#ccc;}
 }
 .menu li a {
   color:#FFF;
-  font-family:sans-serif;
+  font-family:Roboto Condensed, sans-serif;
+  font-size:14px;
   text-decoration:none;
   padding:8px 10px;
+}
+
+.project-container {
 }
 
 .project-box {
@@ -64,10 +68,10 @@ body {background:#ccc;}
   position:absolute;
   bottom:67px;
   right:0;
-  width:374px;
+  width:411px;
   color:#FFF;
 
-
+  /*top:20%;*/
   background:#000000;
   background:rgba(0,0,0,0.65)
 
@@ -76,26 +80,42 @@ body {background:#ccc;}
 .description-box .box {
   vertical-align:text-top;
   display:inline-block;
-  width:187px;
-  padding:40px;
-  font-family:sans-serif;
-  font-weight:normal;
+  /*width:187px;*/
+  width: 205px;
+  padding-left:10px;
+  padding-right:50px;
+  padding-top:40px;
+  padding-bottom:30px;
+  font-family:Dosis, sans-serif;
+  font-weight:medium;
+  font-size:18px;
+}
+.description-box .box:first-child {
+  padding-left:50px;
+  padding-right:10px;
 }
 .description-box p {
   margin-top: 0;
-  margin-bottom: 24px;
+  /*margin-bottom: 24px;*/
+  font-family: Roboto Condensed, sans-serif;
+  font-size:14px;
+  font-weight: normal;
 }
 .description-box h1 {
   font-size:16px;
   font-weight:normal;
   margin-bottom:0;
+  text-transform: uppercase;
+  font-family: Dosis, sans-serif;
+  font-size:18px;
+  font-weight:500;
 }
 
 .project, .nav-left, .nav-down, .nav-right {
   display:inline-block;
   height:66px;
   margin-left:1px;
-  font-family: sans-serif;
+  font-family: Dosis, sans-serif;
   color:#FFF;
   font-size:14px;
   font-weight:normal;
@@ -132,22 +152,6 @@ body {background:#ccc;}
   width:21px; height:21px;
   background:url('../images/cadas_sprites.png') no-repeat -24px -25px;;
 }
-@media screen and (max-width: 600px) {
-  .nav-left, .nav-down, .nav-right {
-    display:none;
-  }
-  .project { padding:27px 26px; }
-  .project p { display:none;  }
-  .project span {
-    display: block;
-    background: url('../images/cadas_sprites.png') no-repeat -24px -25px;
-    width: 16px;
-    height: 16px;
-  }
-  .project.active span {
-    background: url('../images/cadas_sprites.png') no-repeat -24px -89px;
-  }
-}
 .project.active p:before {
   background: url('../images/cadas_sprites.png') no-repeat -24px -96px;
   top:7px;
@@ -165,6 +169,20 @@ body {background:#ccc;}
 .nav-down:hover span {background:url('../images/cadas_sprites.png') no-repeat -213px -92px;}
 
 @media screen and (max-width: 600px) {
+  .nav-left, .nav-down, .nav-right {
+    display:none;
+  }
+  .project { padding:27px 26px; }
+  .project p { display:none;  }
+  .project span {
+    display: block;
+    background: url('../images/cadas_sprites.png') no-repeat -24px -25px;
+    width: 16px;
+    height: 16px;
+  }
+  .project.active span {
+    background: url('../images/cadas_sprites.png') no-repeat -24px -89px;
+  }
   .menu li a {
     font-size:12px;
     padding:5px 10px;
@@ -183,8 +201,6 @@ body {background:#ccc;}
     right: 0;
     left: 0;
     top: 86px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling:touch;
   }
   .description-box .box {
     padding: 20px 15px;
