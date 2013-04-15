@@ -201,6 +201,14 @@ body {background:#ccc;}
     right: 0;
     left: 0;
     top: 86px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+  }
+  .description-box .box:first-child {
+    padding-left:10px;
+    padding-right:50px;
+    padding-top:40px;
+    padding-bottom:30px;
   }
   .description-box .box {
     padding: 20px 15px;
