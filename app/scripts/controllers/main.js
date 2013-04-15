@@ -8,8 +8,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         //var url = 'http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=JSON_CALLBACK';
         var url = 'data.json';
         $http.get(url).success(function(response){
-            $scope.content = response;
-            console.log(response);
+            $scope.content = response.cadas;
             $scope.initialize();
         })
         .error(function(data, status, headers, config){
@@ -109,10 +108,13 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                 swipers: [],
                 generate: function() {
                     var i = 0;
-                    console.log(42);
-                    console.log($scope.content[0].projetos[0].galeria[0].low_res);
-                    for (i=0; i<$scope.content[0].projetos.length; i++) {
-                        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'> <div class='pagination-nested2 pagination-n"+i+"'></div> <div class='swiper-wrapper'> </div> </div>"
+                    var projetos = $scope.content;
+                    console.log(projetos.length);
+                    for (i=0; i<projetos.length; i++) {
+                        var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'>"+
+                                        "<div class='pagination-nested2 pagination-n"+i+"'></div>"+
+                                        "<div class='swiper-wrapper'>"+
+                                   "</div> </div>";
                         $scope.createNewSlide($scope.swipers.horizontalSwiper.swiper, html);
                         $scope.fitFullPage();
 
@@ -130,8 +132,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                             onSlideChangeEnd : function(i) {
                             }
                         });
-                        for (var k=0; k<$scope.content[0].projetos[i].galeria.length; k++) {
-                            var html = $scope.content[0].projetos[i].galeria[k].low_res;
+                        for (var k=0; k < projetos[i].galeria.length; k++) {
+                            var html = projetos[i].galeria[k].low_res;
                             html = '<div style="position:absolute;top:0;left:0;bottom:0;top:0;background: url('+html+') no-repeat center center fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;width:100%;height:100%;"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
@@ -155,7 +157,12 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                     break;
                 case 40:
                     console.log('down');
-                    y.swipeNext();
+                    if (y.activeSlide === y.slides.length - 1) {
+                        console.log('subindo');
+                        y.swipeTo(0, 3000, true);
+                    }  else {
+                        y.swipeNext();
+                    }
                     break;
             }
         });
@@ -188,6 +195,13 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
     $scope.goDown = function() {
         var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
         var y = $scope.swipers.verticalSwipers.swipers[x];
-        y.swipeNext();
+console.log(y.activeSlide);
+console.log(y.slides.length);
+        if (y.activeSlide === y.slides.length - 1) {
+            console.log('subindo');
+            y.swipeTo(0, 3000, true);
+        }  else {
+            y.swipeNext();
+        }
     }
 });

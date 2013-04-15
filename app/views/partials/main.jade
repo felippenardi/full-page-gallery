@@ -59,7 +59,7 @@
   .project-box
     .project(ng-click="toggle()", ng-class="isActive")
       span
-      p {{content[0].projetos[activeProject].nome}}
+      p {{content[activeProject].nome}}
     .nav-left(ng-click="goLeft()")
       span
     .nav-down(ng-click="goDown()")
@@ -68,19 +68,19 @@
       span
   .description-box(ng-show="isVisible")
     .box
-      h1 {{content[0].projetos[activeProject].nome}}
+      h1 {{content[activeProject].nome}}
 
       h1 Ano
-      p {{content[0].projetos[activeProject].ano}}
+      p {{content[activeProject].ano}}
 
       h1 Localização
-      p {{content[0].projetos[activeProject].localizacao}}
+      p {{content[activeProject].localizacao}}
 
       h1 Tipo
-      p {{content[0].projetos[activeProject].categoria}}
+      p {{content[activeProject].categoria}}
 
     .box
       h1 Créditos
-      p(ng-repeat="credito in content[0].projetos[activeProject].creditos") {{credito.nome}}
+      p(ng-repeat="credito in content[activeProject].creditos") {{credito.nome}}
       h1 Equipe
-      p(ng-repeat="membro in content[0].projetos[activeProject].equipe") {{membro.nome}}
+      p(ng-repeat="membro in content[activeProject].equipe") {{membro.nome}}
