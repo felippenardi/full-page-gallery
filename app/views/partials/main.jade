@@ -59,11 +59,11 @@
   .project(ng-click="toggle()", ng-class="isActive")
     span
     p Residência Itaipava
-  .nav-left
+  .nav-left(ng-click="goLeft()")
     span
   .nav-down
     span
-  .nav-right
+  .nav-right(ng-click="goRight()")
     span
 .description-box(ng-show="isVisible")
   .box

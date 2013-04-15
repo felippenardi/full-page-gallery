@@ -175,4 +175,10 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
 
     }
+    $scope.goLeft = function() {
+        $scope.swipers.horizontalSwiper.swiper.swipePrev();
+    }
+    $scope.goRight = function() {
+        $scope.swipers.horizontalSwiper.swiper.swipePrev();
+    }
 });
