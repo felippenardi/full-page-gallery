@@ -123,7 +123,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                             keyboardControl : false,
                             mousewheelControl : true,
                             onSlideChangeStart: function(i) {
-                                $scope.$apply($location.search('foto',i.activeSlide));
+                                $scope.$apply(function() {
+                                    $location.search('foto',i.activeSlide)
+                                });
                             },
                             onSlideChangeEnd : function(i) {
                             }
@@ -166,6 +168,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
             var foto = ($routeParams.foto) ? $routeParams.foto : 0;
             $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
             $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
+            $scope.activeProject = $routeParams.projeto;
         });
 
         // TODO REMOVE GLOBAL VARIABLE
@@ -173,12 +176,17 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         var foto = ($routeParams.foto) ? $routeParams.foto : 0;
         $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
+        $scope.activeProject = $routeParams.projeto;
 
     }
     $scope.goLeft = function() {
+        console.log($scope.swipers.horizontalSwiper.swiper.activeSlide);
         $scope.swipers.horizontalSwiper.swiper.swipePrev();
     }
     $scope.goRight = function() {
+        console.log($scope.swipers.horizontalSwiper.swiper.activeSlide);
         $scope.swipers.horizontalSwiper.swiper.swipePrev();
     }
+
+
 });

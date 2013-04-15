@@ -58,7 +58,7 @@
 .project-box
   .project(ng-click="toggle()", ng-class="isActive")
     span
-    p Residência Itaipava
+    p {{content[0].projetos[activeProject].nome}}
   .nav-left(ng-click="goLeft()")
     span
   .nav-down
@@ -67,19 +67,19 @@
     span
 .description-box(ng-show="isVisible")
   .box
-    p {{content[0].projetos[0].nome}}
+    p {{content[0].projetos[activeProject].nome}}
 
     h1 Ano
-    p {{content[0].projetos[0].ano}}
+    p {{content[0].projetos[activeProject].ano}}
 
     h1 Localização
-    p {{content[0].projetos[0].localizacao}}
+    p {{content[0].projetos[activeProject].localizacao}}
 
     h1 Tipo
-    p {{content[0].projetos[0].categoria}}
+    p {{content[0].projetos[activeProject].categoria}}
 
   .box
     h1 Créditos
-    p(ng-repeat="credito in content[0].projetos[0].creditos") {{credito.nome}}
+    p(ng-repeat="credito in content[0].projetos[activeProject].creditos") {{credito.nome}}
     h1 Equipe
-    p(ng-repeat="membro in content[0].projetos[0].equipe") {{membro.nome}}
+    p(ng-repeat="membro in content[0].projetos[activeProject].equipe") {{membro.nome}}
