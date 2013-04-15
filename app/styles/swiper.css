@@ -100,6 +100,7 @@
     position:absolute;
     z-index:20;
 }
+
 .pagination-nested1 .swiper-pagination-switch {
     background: none repeat scroll 0 0 #555555;
     border: 1px solid #FFFFFF;
@@ -110,6 +111,7 @@
     opacity: 0.8;
     width: 8px;
     float: left;
+    margin-bottom:5px;
 }
 .pagination-nested1 .swiper-active-switch {
     background: none repeat scroll 0 0 #FFFFFF;
