@@ -134,7 +134,17 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
                             var html = projetos[i].galeria[k].low_res;
-                            html = '<div style="position:absolute;top:0;left:0;bottom:0;top:0;background: url('+html+') no-repeat center center fixed;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;width:100%;height:100%;"></div>';
+                            var formato = projetos[i].galeria[k].formato;
+                            if (formato === "tela-cheia") {
+                                formato = "no-repeat center center fixed"+
+                                    ";-webkit-background-size: cover; -moz-background-size: cover;"+
+                                    " -o-background-size: cover; background-size: cover;width:100%;height:100%;";
+                            } else if (formato === "vertical") {
+                                formato = "no-repeat fixed center"+
+                                    ";-webkit-background-size: auto 100%; -moz-background-size: auto 100%;"+
+                                    " -o-background-size: auto 100%; background-size: auto 100%;width:100%;height:100%;";
+                            }
+                            html = '<div style="position:absolute;top:0;left:0;bottom:0;top:0;background: url('+html+') '+formato+'"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
