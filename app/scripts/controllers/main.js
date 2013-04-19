@@ -89,9 +89,18 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                     grabCursor: true,
                     keyboardControl : true,
                     onSlideChangeStart : function() {
-                        var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
-                        var y = $scope.swipers.verticalSwipers.swipers[x].activeSlide;
-                        $scope.$apply($location.search({'projeto': x, 'foto' : y}));
+                        var xSlider = $scope.swipers.horizontalSwiper.swiper;
+                        var ySliders = $scope.swipers.verticalSwipers.swipers;
+                        var x = xSlider.activeSlide;
+                        var y = ySliders[x].activeSlide;
+
+                        $scope.swipers.verticalSwipers.swipers[x].swipeTo(0,0, true);
+                        for (var i=0; i< xSlider.slides.length; i++) {
+                            ySliders[i].swipeTo(0,0,0,false);
+                        }
+                        console.log('foi pra cima');
+
+                        $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
                         if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
                             console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
@@ -101,6 +110,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
                     },
                     onSlideChangeEnd : function() {
+                        //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+                        //var y = $scope.swipers.verticalSwipers.swipers[x];
+                        //y.swipeTo(0,0, false);
                     }
                 })
             },
@@ -122,14 +134,15 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                             pagination : '.pagination-n'+i,
                             slidesPerSlide : 1,
                             mode: 'vertical',
-                            keyboardControl : false,
+                            keyboardControl : true,
                             mousewheelControl : true,
                             onSlideChangeStart: function(i) {
-                                $scope.$apply(function() {
-                                    $location.search('foto',i.activeSlide)
-                                });
                             },
                             onSlideChangeEnd : function(i) {
+                                $scope.$apply(function() {
+                                    $location.search('foto',i.activeSlide)
+                                    $scope.fitFullPage();
+                                });
                             }
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
@@ -154,28 +167,28 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         $scope.swipers.verticalSwipers.generate();
         console.log($scope.swipers.verticalSwipers.swipers[0].currentSlide());
 
-        $(document).keydown(function (e) {
-            if(!e) {
-                e = window.event;
-            }
-            var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
-            var y = $scope.swipers.verticalSwipers.swipers[x];
-            switch(e.keyCode) {
-                case 38:
-                    console.log('up');
-                    y.swipePrev();
-                    break;
-                case 40:
-                    console.log('down');
-                    if (y.activeSlide === y.slides.length - 1) {
-                        console.log('subindo');
-                        y.swipeTo(0, 3000, true);
-                    }  else {
-                        y.swipeNext();
-                    }
-                    break;
-            }
-        });
+        //$(document).keydown(function (e) {
+            //if(!e) {
+                //e = window.event;
+            //}
+            //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+            //var y = $scope.swipers.verticalSwipers.swipers[x];
+            //switch(e.keyCode) {
+                //case 38:
+                    //console.log('up');
+                    //y.swipePrev();
+                    //break;
+                //case 40:
+                    //console.log('down');
+                    //if (y.activeSlide === y.slides.length - 1) {
+                        //console.log('subindo');
+                        //y.swipeTo(0, 3000, true);
+                    //}  else {
+                        //y.swipeNext();
+                    //}
+                    //break;
+            //}
+        //});
 
 
         $scope.fitFullPage();
