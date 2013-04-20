@@ -1,0 +1,27 @@
+.columns.collapse {
+  padding-left:1px;
+  padding-right:1px;
+}
+
+.topo {
+  width:100%;
+  padding:10px 0;
+  background:#504a3c;
+}
+
+.menu {
+  display:inline-block;
+  position:absolute;
+  top:5px;
+  right:5px;
+}
+.menu li {
+  display:inline-block;
+}
+.menu li a {
+  color:#FFF;
+  font-family:Roboto Condensed, sans-serif;
+  font-size:14px;
+  text-decoration:none;
+  padding:8px 10px;
+}

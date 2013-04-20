@@ -48,6 +48,7 @@ redis.get('foo', function(err, value) {
 // Routes
 
 app.get('/', routes.index);
+app.get('/projetos', routes.projetos);
 app.get('/partials/:name', routes.partials);
 
 // redirect all others to the index (HTML5 history)
