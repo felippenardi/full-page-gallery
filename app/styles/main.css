@@ -110,20 +110,24 @@ li {
 .project-grid .box.cover {
 }
 .project-grid .box.cover:hover:before {
-  content:attr(data-nome) '\a\a ver detalhe';
-  padding:20px 0 0 20px;
-  white-space:pre-line;
-  /*text-transform:uppercase;*/
+  content:'';
   position:absolute;
   top:0; left:0; right:0; bottom:0;
   background:#504a3c;
+  background:rgba(80,74,60,0.5);
+}
+
+.project-grid .box.cover:hover:after {
+  content:'+';
+  position:absolute;
+  top:42%;
+  left:45%;
   line-height:20px;
   color:#FFF;
   font-weight:normal;
-  font-size:14px;
-}
-.project-grid .box.cover:hover:before:first-line {
-  text-decoration:underline;
+  font-family:Dosis;
+  font-weight:100;
+  font-size:60px;
 }
 
 .project-grid h1 {
