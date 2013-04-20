@@ -85,7 +85,14 @@ li {
   color:#ada799;
   font-weight:normal;
 }
-
+.cover {
+  background-position: center!important;
+  background-repeat:no-repeat!important;
+  -webkit-background-size: cover!important;
+  -moz-background-size: cover!important;
+  -o-background-size: cover!important;
+  background-size: cover!important;
+}
 .project-grid .box {
   height:190px;
   position:relative;
@@ -100,9 +107,28 @@ li {
   background-color:#82ad73;
 }
 
+.project-grid .box.cover {
+}
+.project-grid .box.cover:hover:before {
+  content:attr(data-nome) '\a\a ver detalhe';
+  padding:20px 0 0 20px;
+  white-space:pre-line;
+  /*text-transform:uppercase;*/
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background:#504a3c;
+  line-height:20px;
+  color:#FFF;
+  font-weight:normal;
+  font-size:14px;
+}
+.project-grid .box.cover:hover:before:first-line {
+  text-decoration:underline;
+}
+
 .project-grid h1 {
   margin:0;
-  padding:30px 0 0 30px;
+  padding:20px 0 0 20px;
 }
 .filter {
   margin:30px 0;
