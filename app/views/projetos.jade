@@ -1,66 +1,6 @@
-extends layout_interno
+extends layout
 
 block body
-  .top-bar
-    .row
-      .large-6.columns
-        img(src="images/cadas_logo.png")
-      .large-6.columns
-        ul.menu
-          li
-            a(href="#") Perfil
-          li.active Projetos
-          li
-            a(href="#") Contato
-
-  .row
-    .large-12.columns
-      .filter
-        h1 Projetos
-        ul
-          li.active Residência
-          li Apartamento
-          li Comercial
-          li Arquivo
-
-  .row.project-grid
-    .small-12.large-3.collapse.columns
-      .box.verde
-        h1 Residência
-    .small-12.large-3.collapse.columns
-      .box.marrom
-        p Residência em Angras dos Reis
-        a(href="") Ver detalhe
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-    .small-12.large-3.collapse.columns
-      a(href="#")
-        .box.cover(style="background:url(http://placehold.it/310x190);")
-
-
-
   <!--[if lt IE 7]>
   <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
   <![endif]-->
@@ -71,10 +11,13 @@ block body
   <![endif]-->
   div(ng-view)
 
+  script(src='components/angular/angular.js')
+  script(src='scripts/app.js')
+  script(src='scripts/services/gallery_source.js')
+  script(src='scripts/controllers/main.js')
   script
     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
     g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
     s.parentNode.insertBefore(g,s)}(document,'script'));
-
 
 

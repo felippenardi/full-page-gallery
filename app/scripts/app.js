@@ -1,11 +1,17 @@
 'use strict';
 
-angular.module('herokuApp', [])
+var app = angular.module('herokuApp', [])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main',
         controller: 'MainCtrl',
+        reloadOnSearch: false
+
+      })
+      .when('/projetos', {
+        templateUrl: 'partials/projetos',
+        controller: 'ProjetosCtrl',
         reloadOnSearch: false
 
       })

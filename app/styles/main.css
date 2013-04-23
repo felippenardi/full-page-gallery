@@ -1,4 +1,6 @@
-
+[class*="column"] + [class*="column"]:last-child {
+  float:left;
+}
 /* Clear Fix */
 .group:before,
 .group:after {

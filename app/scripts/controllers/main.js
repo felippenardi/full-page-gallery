@@ -1,11 +1,9 @@
 'use strict';
 
 var app = angular.module('herokuApp');
+
 app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
     $scope.populate = function() {
-        var url = 'http://cadas.dev.ultraleve.me/projetos/';
-        // Esse URL abaixo funciona jsonp
-        //var url = 'http://public-api.wordpress.com/rest/v1/sites/wtmpeachtest.wordpress.com/posts?callback=JSON_CALLBACK';
         var url = 'data.json';
         $http.get(url).success(function(response){
             $scope.content = response.cadas;
@@ -226,5 +224,25 @@ console.log(y.slides.length);
         }  else {
             y.swipeNext();
         }
+    }
+});
+
+
+app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $http, $window) {
+    $scope.populate = function() {
+        var url = 'data_projetos.json';
+        $http.get(url).success(function(response){
+            $scope.content = response.cadas;
+        })
+        .error(function(data, status, headers, config){
+            console.log("JSON may not exist or is not responding. "+url);
+        })
+    };
+    $scope.populate();
+
+    $scope.teste = 'teste';
+
+    $scope.goTo = function(url) {
+       $window.open(url);
     }
 });
