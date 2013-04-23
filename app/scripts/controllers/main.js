@@ -4,7 +4,7 @@ var app = angular.module('herokuApp');
 
 app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
     $scope.populate = function() {
-        var url = 'data.json';
+        var url = 'data_projetos.json';
         $http.get(url).success(function(response){
             $scope.content = response.cadas;
             $scope.initialize();
@@ -14,47 +14,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         })
     };
     $scope.populate();
-
-    //(function setimgwidth() {
-        //var $bg              = $(".swiper-slide img");
-        //var theWindow        = $(window);
-        //var aspectRatio      = $bg.width() / $bg.height();
-        //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-            //$bg
-            //.removeClass()
-            //.addClass('bgheight');
-        //} else {
-            //$bg
-            //.removeClass()
-            //.addClass('bgwidth');
-        //}
-    //})();
-    //$(window).load(function() {
-        //var theWindow        = $(window),
-        //$bg              = $(".swiper-slide img"),
-        //aspectRatio      = $bg.width() / $bg.height();
-
-        //function resizeBg() {
-            //if ( (theWindow.width() / theWindow.height()) < aspectRatio ) {
-                //$bg
-                //.removeClass()
-                //.addClass('bgheight');
-            //} else {
-                //$bg
-                //.removeClass()
-                //.addClass('bgwidth');
-            //}
-        //}
-        //var timer;
-        //function delayResize(){
-            //clearTimeout(timer)
-            //timer = setTimeout(function() {
-                //console.log("teste");
-                //resizeBg();
-            //},400);
-        //}
-        //theWindow.resize(delayResize).trigger("resize");
-    //});
 
     $scope.initialize = function() {
         $scope.fitFullPage = function _fitFullPage(){
@@ -96,15 +55,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
                         for (var i=0; i< xSlider.slides.length; i++) {
                             ySliders[i].swipeTo(0,0,0,false);
                         }
-                        console.log('foi pra cima');
 
                         $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
-                        if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
-                            console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
-                        } else {
-                            console.log(">>> ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'>'+$scope.swipers.horizontalSwiper.prevSlide);
-                        }
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
                     },
                     onSlideChangeEnd : function() {
@@ -216,10 +169,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
     $scope.goDown = function() {
         var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
         var y = $scope.swipers.verticalSwipers.swipers[x];
-console.log(y.activeSlide);
-console.log(y.slides.length);
         if (y.activeSlide === y.slides.length - 1) {
-            console.log('subindo');
             y.swipeTo(0, 3000, true);
         }  else {
             y.swipeNext();
@@ -240,9 +190,4 @@ app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $http,
     };
     $scope.populate();
 
-    $scope.teste = 'teste';
-
-    $scope.goTo = function(url) {
-       $window.open(url);
-    }
 });
