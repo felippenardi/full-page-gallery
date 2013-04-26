@@ -157,7 +157,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
         var foto = ($routeParams.foto) ? $routeParams.foto : 0;
         $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
-        $scope.activeProject = $routeParams.projeto;
+        $scope.activeProject = 0;
 
     }
     $scope.goLeft = function() {

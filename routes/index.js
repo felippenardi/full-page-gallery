@@ -7,9 +7,7 @@ exports.index = function(req, res){
   res.render('index');
 };
 
-exports.projetos = function(req, res){
-  res.render('projetos');
-};
+exports.internas = function(req, res){ res.render('internas'); };
 
 exports.partials = function (req, res) {
   var name = req.params.name;

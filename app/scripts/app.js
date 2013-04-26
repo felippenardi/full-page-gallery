@@ -13,7 +13,16 @@ var app = angular.module('herokuApp', [])
         templateUrl: 'partials/projetos',
         controller: 'ProjetosCtrl',
         reloadOnSearch: false
-
+      })
+      .when('/perfil', {
+        templateUrl: 'partials/perfil',
+        controller: 'ProjetosCtrl',
+        reloadOnSearch: false
+      })
+      .when('/contato', {
+        templateUrl: 'partials/contato',
+        controller: 'ProjetosCtrl',
+        reloadOnSearch: false
       })
       .otherwise({
         redirectTo: '/'

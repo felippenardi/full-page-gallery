@@ -167,7 +167,7 @@ li {
   cursor:pointer;
   font-size:15px;
 }
-.filter li.active {
+.filter li a:hover {
   color:#fdfcf8;
   text-decoration:underline;
   cursor:default;
@@ -223,11 +223,12 @@ li {
 .description-box h1 {
   font-size:16px;
   font-weight:normal;
-  margin-bottom:0;
+  margin-bottom:10px;
   text-transform: uppercase;
   font-family: Dosis, sans-serif;
   font-size:18px;
   font-weight:500;
+  color:#FFF;
 }
 
 .project, .nav-left, .nav-down, .nav-right {
@@ -286,6 +287,31 @@ li {
 .nav-right:hover span {background:url('../images/cadas_sprites.png') no-repeat -156px -85px;}
 .nav-down span {background:url('../images/cadas_sprites.png') no-repeat -213px -28px; top: 11px; right: 2px;}
 .nav-down:hover span {background:url('../images/cadas_sprites.png') no-repeat -213px -92px;}
+
+#contato {
+  margin: 30px 0; }
+#contato, #contato .columns {
+  padding-left:0; padding-right:0;
+}
+#contato h2 {
+  font-family: Dosis, sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size:30px;
+  color: #BBB7A8;
+}
+
+#contato p {
+  color:#BBB7A8;
+  font-weight:normal;
+  margin:5px 0;
+  font-size:15px;
+}
+
+#contato p a {
+  color: #FFF;
+}
+
 
 @media screen and (max-width: 600px) {
   .nav-left, .nav-down, .nav-right {

@@ -6,20 +6,20 @@
     .large-6.columns
       ul.menu
         li
-          a(href="#") Perfil
+          a(href="/perfil") Perfil
         li.active Projetos
         li
-          a(href="#") Contato
+          a(href="/contato") Contato
 
 .row
   .large-12.columns
     .filter
       h1 Projetos
-      ul
-        li.active Residência
-        li Apartamento
-        li Comercial
-        li Arquivo
+      //-ul
+        //-li Residência
+        //-li Apartamento
+        //-li Comercial
+        //-li Arquivo
 
 .row.project-grid
   span(ng-repeat="category in content")
@@ -30,7 +30,7 @@
       .small-12.large-3.collapse.columns
         .box.marrom
           p {{project.nome}}
-          a(href="") Ver detalhe
+          a(href="/?projeto={{project.ordem}}") Ver detalhe
       .small-12.large-3.collapse.columns
         a(href="/?projeto={{project.ordem}}")
           .box.cover.last(style="background:url({{project.thumb}});")
