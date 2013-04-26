@@ -4,7 +4,7 @@ var app = angular.module('herokuApp');
 
 app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
     $scope.populate = function() {
-        var url = 'data_projetos.json';
+        var url = 'data.json';
         $http.get(url).success(function(response){
             $scope.content = response.cadas;
             $scope.initialize();

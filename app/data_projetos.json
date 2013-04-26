@@ -1,3 +1,4 @@
+
 {"cadas":[
 
 { "cat_id": 1,
@@ -6,10 +7,11 @@
 
     {
         "id": 20,
+        "ordem": 0,
         "nome": "Apartamento em Ipanema",
         "ano" : "2012",
         "categoria" : "Apartamentos",
-        "localizacao": "Ipanema - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Laer (construtora)" },
@@ -108,10 +110,11 @@
     },
     {
         "id": 27,
+        "ordem": 1,
         "nome": "Apartamento em Ipanema",
         "ano" : "2012",
         "categoria" : "Apartamentos",
-        "localizacao": "Ipanema - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Tempore (construtora)" },
@@ -194,10 +197,11 @@
     },
     {
         "id": 36,
+        "ordem": 2,
         "nome": "Apartamento em São Conrado",
         "ano" : "2011",
         "categoria" : "Apartamentos",
-        "localizacao": "São Conrado - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Stewart Engenharia (construtora)" },
@@ -266,10 +270,11 @@
     },
     {
         "id": 39,
+        "ordem": 3,
         "nome": "Apartamento em Ipanema",
         "ano" : "2009",
         "categoria" : "Apartamentos",
-        "localizacao": "Ipanema - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Stewart Engenharia (construtora)" },
@@ -370,16 +375,247 @@
     }
     ]
 },
+{ "cat_id": 9,
+    "nome": "Praia",
+    "projetos": [
+
+    {
+        "id": 4,
+        "ordem": 4,
+        "nome": "Residência em Angra dos Reis",
+        "ano" : "2011",
+        "categoria" : "Praia",
+        "localizacao": "",
+        "creditos" : [
+
+          { "nome": "Laer (construtora)" },
+          { "nome": "Maneco Quinderé (iluminação)" },
+          { "nome": "Fernando Chacel (paisagismo)" },
+          { "nome": "Joaquim Nabuco (fotografia)" }
+        ],
+        "equipe" : [
+
+          { "nome": "Mauricio Maragão (arquitetura)" },
+          { "nome": "Cristiana David (interior)" },
+          { "nome": "Bruna Pirá (interior)" }
+        ],
+        "thumb" : "http://cadas.dev.ultraleve.me/image/2/320/240/5/upload/projetos/dsc_6369-51644e7489401.jpg",
+        "galeria": [
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6369-51644e7489401.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6369-51644e7489401.jpg",
+
+            "legenda": "",
+            "formato": "horizontal"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6371-51644e7fd0c38.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6371-51644e7fd0c38.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6390-51644e8a382d6.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6390-51644e8a382d6.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6391-51644e9758a6f.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6391-51644e9758a6f.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6395-51644ea7ae5f0.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6395-51644ea7ae5f0.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/dsc_7254-51644eba1bdf3.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/dsc_7254-51644eba1bdf3.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7381-51644ef741002.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7381-51644ef741002.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7412-51644f03b6af0.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7412-51644f03b6af0.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7441d-51644f11859cf.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7441d-51644f11859cf.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7448b-51644f210d808.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7448b-51644f210d808.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7463-51644f2e39346.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7463-51644f2e39346.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7573-51644f3c96b71.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7573-51644f3c96b71.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7582b-51644f47ddc31.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7582b-51644f47ddc31.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          }
+        ]
+    },
+    {
+        "id": 53,
+        "ordem": 5,
+        "nome": "Residência em Angra dos Reis",
+        "ano" : "2007",
+        "categoria" : "Praia",
+        "localizacao": "",
+        "creditos" : [
+
+          { "nome": "Laer (construtora)" },
+          { "nome": "Maneco Quinderé (iluminação)" },
+          { "nome": "Fernando Chacel (paisagismo)" },
+          { "nome": "MCA Estúdio (fotografia)" }
+        ],
+        "equipe" : [
+
+          { "nome": "Mauricio Maragão (arquitetura)" },
+          { "nome": "Cristiana David (interior)" },
+          { "nome": "Juliana Fraga (interior)" }
+        ],
+        "thumb" : "",
+        "galeria": [
+        ]
+    },
+    {
+        "id": 51,
+        "ordem": 6,
+        "nome": "Residência em Búzios",
+        "ano" : "2007",
+        "categoria" : "Praia",
+        "localizacao": "",
+        "creditos" : [
+
+          { "nome": "Maneco Quinderé (iluminação)" },
+          { "nome": "Louis Marcelo (paisagismo)" },
+          { "nome": "MCA Estúdio (fotografia)" }
+        ],
+        "equipe" : [
+
+          { "nome": "Mauricio Maragão (arquitetura)" },
+          { "nome": "Cilene Marx (arquitetura)" },
+          { "nome": "Cristiana David (interior)" },
+          { "nome": "Juliana Fraga (interior)" }
+        ],
+        "thumb" : "http://cadas.dev.ultraleve.me/image/2/320/240/5/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
+        "galeria": [
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4917-2-copy-5164516066c57.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4917-2-copy-5164516066c57.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4927-2-copy-5164519361a85.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4927-2-copy-5164519361a85.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4945-2-copy-5164519692f87.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4945-2-copy-5164519692f87.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4973-2-copy-516451986ce2c.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4973-2-copy-516451986ce2c.jpg",
+
+            "legenda": "",
+            "formato": "vertical"
+          },
+          {
+
+            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/_mg_4997-2-copy-516451a1a3d1c.jpg",
+            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/_mg_4997-2-copy-516451a1a3d1c.jpg",
+
+            "legenda": "",
+            "formato": "tela-cheia"
+          }
+        ]
+    }
+    ]
+},
 { "cat_id": 8,
     "nome": "Serra",
     "projetos": [
 
     {
         "id": 33,
+        "ordem": 7,
         "nome": "Residência em Itaipava",
         "ano" : "2012",
         "categoria" : "Serra",
-        "localizacao": "Vale da Boa Esperança, Itaipava - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "PH de Aquino (construtora)" },
@@ -464,32 +700,12 @@
         ]
     },
     {
-        "id": 49,
-        "nome": "Residência em Araras",
-        "ano" : "2009",
-        "categoria" : "Serra",
-        "localizacao": "Araras - RJ",
-        "creditos" : [
-
-          { "nome": "PH de Aquino (construtora)" },
-          { "nome": "Iluz (iluminação)" },
-          { "nome": "Vanessa Borges (projeto de interior)" }
-        ],
-        "equipe" : [
-
-          { "nome": "Mauricio Maragão (arquitetura)" },
-          { "nome": "Ricardo Gonçalves (arquitetura)" }
-        ],
-        "thumb" : "",
-        "galeria": [
-        ]
-    },
-    {
         "id": 43,
+        "ordem": 8,
         "nome": "Residência em Itaipava",
         "ano" : "2008",
         "categoria" : "Serra",
-        "localizacao": "Terras da Boa Esperança, Itaipava - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "PH de Aquino (construtora)" },
@@ -608,10 +824,11 @@
     },
     {
         "id": 46,
+        "ordem": 9,
         "nome": "Fazenda em Sossego",
         "ano" : "2008",
         "categoria" : "Serra",
-        "localizacao": "Sossego - MG",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "PH de Aquino (construtora)" },
@@ -736,11 +953,34 @@
         ]
     },
     {
+        "id": 49,
+        "ordem": 10,
+        "nome": "Residência em Araras",
+        "ano" : "2009",
+        "categoria" : "Serra",
+        "localizacao": "",
+        "creditos" : [
+
+          { "nome": "PH de Aquino (construtora)" },
+          { "nome": "Iluz (iluminação)" },
+          { "nome": "Vanessa Borges (projeto de interior)" }
+        ],
+        "equipe" : [
+
+          { "nome": "Mauricio Maragão (arquitetura)" },
+          { "nome": "Ricardo Gonçalves (arquitetura)" }
+        ],
+        "thumb" : "",
+        "galeria": [
+        ]
+    },
+    {
         "id": 52,
+        "ordem": 11,
         "nome": "Residência em Itaipava",
         "ano" : "2007",
         "categoria" : "Serra",
-        "localizacao": "Vale da Boa Esperança, Itaipava - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Laer (construtora)" },
@@ -938,243 +1178,17 @@
     }
     ]
 },
-{ "cat_id": 9,
-    "nome": "Praia",
-    "projetos": [
-
-    {
-        "id": 4,
-        "nome": "Residência em Angra dos Reis",
-        "ano" : "2011",
-        "categoria" : "Praia",
-        "localizacao": "Angra dos Reis - RJ",
-        "creditos" : [
-
-          { "nome": "Laer (construtora)" },
-          { "nome": "Maneco Quinderé (iluminação)" },
-          { "nome": "Fernando Chacel (paisagismo)" },
-          { "nome": "Joaquim Nabuco (fotografia)" }
-        ],
-        "equipe" : [
-
-          { "nome": "Mauricio Maragão (arquitetura)" },
-          { "nome": "Cristiana David (interior)" },
-          { "nome": "Bruna Pirá (interior)" }
-        ],
-        "thumb" : "http://cadas.dev.ultraleve.me/image/2/320/240/5/upload/projetos/dsc_6369-51644e7489401.jpg",
-        "galeria": [
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6369-51644e7489401.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6369-51644e7489401.jpg",
-
-            "legenda": "",
-            "formato": "horizontal"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6371-51644e7fd0c38.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6371-51644e7fd0c38.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6390-51644e8a382d6.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6390-51644e8a382d6.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6391-51644e9758a6f.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6391-51644e9758a6f.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_6395-51644ea7ae5f0.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_6395-51644ea7ae5f0.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/dsc_7254-51644eba1bdf3.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/dsc_7254-51644eba1bdf3.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7381-51644ef741002.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7381-51644ef741002.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7412-51644f03b6af0.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7412-51644f03b6af0.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7441d-51644f11859cf.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7441d-51644f11859cf.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7448b-51644f210d808.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7448b-51644f210d808.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7463-51644f2e39346.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7463-51644f2e39346.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7573-51644f3c96b71.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7573-51644f3c96b71.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/dsc_7582b-51644f47ddc31.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/dsc_7582b-51644f47ddc31.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          }
-        ]
-    },
-    {
-        "id": 51,
-        "nome": "Residência em Búzios",
-        "ano" : "2007",
-        "categoria" : "Praia",
-        "localizacao": "Manguinhos, Búzios - RJ",
-        "creditos" : [
-
-          { "nome": "Maneco Quinderé (iluminação)" },
-          { "nome": "Louis Marcelo (paisagismo)" },
-          { "nome": "MCA Estúdio (fotografia)" }
-        ],
-        "equipe" : [
-
-          { "nome": "Mauricio Maragão (arquitetura)" },
-          { "nome": "Cilene Marx (arquitetura)" },
-          { "nome": "Cristiana David (interior)" },
-          { "nome": "Juliana Fraga (interior)" }
-        ],
-        "thumb" : "http://cadas.dev.ultraleve.me/image/2/320/240/5/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
-        "galeria": [
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4914-2-copy-5164515e5d454.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4917-2-copy-5164516066c57.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4917-2-copy-5164516066c57.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4927-2-copy-5164519361a85.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4927-2-copy-5164519361a85.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4945-2-copy-5164519692f87.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4945-2-copy-5164519692f87.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/0/600/upload/projetos/_mg_4973-2-copy-516451986ce2c.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/0/1000/upload/projetos/_mg_4973-2-copy-516451986ce2c.jpg",
-
-            "legenda": "",
-            "formato": "vertical"
-          },
-          {
-
-            "low_res": "http://cadas.dev.ultraleve.me/image/1/1024/0/upload/projetos/_mg_4997-2-copy-516451a1a3d1c.jpg",
-            "high_res": "http://cadas.dev.ultraleve.me/image/1/1920/0/upload/projetos/_mg_4997-2-copy-516451a1a3d1c.jpg",
-
-            "legenda": "",
-            "formato": "tela-cheia"
-          }
-        ]
-    },
-    {
-        "id": 53,
-        "nome": "Residência em Angra dos Reis",
-        "ano" : "2007",
-        "categoria" : "Praia",
-        "localizacao": "Vila Velha, Angra dos Reis - RJ",
-        "creditos" : [
-
-          { "nome": "Laer (construtora)" },
-          { "nome": "Maneco Quinderé (iluminação)" },
-          { "nome": "Fernando Chacel (paisagismo)" },
-          { "nome": "MCA Estúdio (fotografia)" }
-        ],
-        "equipe" : [
-
-          { "nome": "Mauricio Maragão (arquitetura)" },
-          { "nome": "Cristiana David (interior)" },
-          { "nome": "Juliana Fraga (interior)" }
-        ],
-        "thumb" : "",
-        "galeria": [
-        ]
-    }
-    ]
-},
 { "cat_id": 2,
     "nome": "Comercial",
     "projetos": [
 
     {
         "id": 44,
+        "ordem": 12,
         "nome": "Galeria Anita Schwartz",
         "ano" : "2008",
         "categoria" : "Comercial",
-        "localizacao": "Gávea - RJ",
+        "localizacao": "",
         "creditos" : [
 
           { "nome": "Stewart Engenharia (construtora)" },
@@ -1241,3 +1255,4 @@
     ]
 }
 ]}
+

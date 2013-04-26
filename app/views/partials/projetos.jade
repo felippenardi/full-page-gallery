@@ -1,7 +1,8 @@
 .top-bar
   .row
     .large-6.columns
-      img(src="images/cadas_logo.png")
+      a(href="/")
+        img(src="images/cadas_logo.png")
     .large-6.columns
       ul.menu
         li
@@ -31,7 +32,7 @@
           p {{project.nome}}
           a(href="") Ver detalhe
       .small-12.large-3.collapse.columns
-        a(href="/?projeto={{$index}}")
+        a(href="/?projeto={{project.ordem}}")
           .box.cover.last(style="background:url({{project.thumb}});")
 
 
