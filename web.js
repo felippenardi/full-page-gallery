@@ -30,20 +30,6 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-// Redis configuration
-
-if (process.env.REDISTOGO_URL) {
-    var redis = require('redis-url').connect(process.env.REDISTOGO_URL);
-} else {
-    var redis = require("redis").createClient();
-}
-
-// redis test
-
-//redis.set('foo', 'bar');
-redis.get('foo', function(err, value) {
-    console.log('foo is: ' + value);
-});
 
 // Routes
 
