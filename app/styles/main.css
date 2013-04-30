@@ -216,9 +216,9 @@ li {
 .description-box p {
   margin-top: 0;
   /*margin-bottom: 24px;*/
-  font-family: Roboto Condensed, sans-serif;
+  font-family:Helvetica, sans-serif;
   font-size:14px;
-  font-weight: normal;
+  font-weight:normal;
 }
 .description-box h1 {
   font-size:16px;
@@ -281,6 +281,9 @@ li {
 .project p {
   position:relative;
   top:-7px;
+  font-family:Helvetica, sans-serif;
+  font-size:14px;
+  font-weight:normal;
 }
 .nav-left span { background: url('../images/cadas_sprites.png') no-repeat -88px -21px; right: -1px; top: 6px; }
 .nav-left:hover span { background: url('../images/cadas_sprites.png') no-repeat -88px -85px; }
