@@ -1,8 +1,18 @@
 'use strict';
 
 var app = angular.module('herokuApp');
-
-app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
+app.run(function ($rootScope) {
+    $rootScope.$on('$routeChangeSuccess', function(ev,data) {
+        if (data.$route && data.$route.controller)
+            $rootScope.controller = data.$route.controller;
+            var route = data.$route.templateUrl;
+            route === "partials/main" ?      $rootScope.onMain     = true : $rootScope.onMain     = false;
+            route === "partials/perfil" ?    $rootScope.onPerfil   = true : $rootScope.onPerfil   = false;
+            route === "partials/projetos" ?  $rootScope.onProjetos = true : $rootScope.onProjetos = false;
+            route === "partials/contato" ?   $rootScope.onContato  = true : $rootScope.onContato  = false;
+    })
+});
+app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope, $http) {
     $scope.populate = function() {
         var url = 'data.json';
         $http.get(url).success(function(response){
@@ -178,7 +188,9 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $http) {
 });
 
 
-app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $http, $window) {
+app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $rootScope, $http, $window) {
+    $scope.onPerfil = $rootScope.onPerfil;
+    console.log(2);
     $scope.populate = function() {
         var url = 'data_projetos.json';
         $http.get(url).success(function(response){

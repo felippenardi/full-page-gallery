@@ -37,7 +37,7 @@ body {background:#635c4a;}
   background:rgba(80,74,60,0.65)
 }
 .top-bar.fixed {
-  position:absolute;
+  position:fixed;
   z-index:3000;
 }
 
@@ -70,7 +70,7 @@ body {background:#635c4a;}
 }
 
 
-.menu li.active {
+.menu li a.active {
   color:#FFF;
 }
 
@@ -288,8 +288,13 @@ li {
 .nav-down span {background:url('../images/cadas_sprites.png') no-repeat -213px -28px; top: 11px; right: 2px;}
 .nav-down:hover span {background:url('../images/cadas_sprites.png') no-repeat -213px -92px;}
 
+#projetos {
+  margin-top: 60px;
+}
 #contato {
-  margin: 30px 0; }
+  margin: 30px 0;
+  margin-top: 99px;
+}
 #contato, #contato .columns {
   padding-left:0; padding-right:0;
 }

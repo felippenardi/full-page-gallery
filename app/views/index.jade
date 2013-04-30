@@ -9,6 +9,17 @@ block body
   <script src="components/es5-shim/es5-shim.js"></script>
   <script src="components/json3/lib/json3.min.js"></script>
   <![endif]-->
+  .top-bar.fixed.group
+      .logo
+          a(href="/")
+            img(src="images/cadas_logo.png")
+      ul.menu
+        li
+          a(href="/perfil", ng-class="{'active': onPerfil}") Perfil
+        li
+          a(href="/projetos", ng-class="{'active': onProjetos}") Projetos
+        li
+          a(href="/contato", ng-class="{'active': onContato}") Contato
   div(ng-view)
 
   script(src='components/angular/angular.js')
