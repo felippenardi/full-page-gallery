@@ -187,7 +187,7 @@ li {
   position:absolute;
   bottom:67px;
   right:0;
-  width:411px;
+  width:452px;
   color:#FFF;
 
   /*top:20%;*/
@@ -234,6 +234,7 @@ li {
 .project, .nav-left, .nav-down, .nav-right {
   display:inline-block;
   height:66px;
+  width:269px;
   margin-left:1px;
   font-family: Dosis, sans-serif;
   color:#FFF;
@@ -288,6 +289,10 @@ li {
 .nav-down span {background:url('../images/cadas_sprites.png') no-repeat -213px -28px; top: 11px; right: 2px;}
 .nav-down:hover span {background:url('../images/cadas_sprites.png') no-repeat -213px -92px;}
 
+#perfil {
+  margin-top:120px;
+}
+
 #projetos {
   margin-top: 60px;
 }
@@ -322,7 +327,7 @@ li {
   .nav-left, .nav-down, .nav-right {
     display:none;
   }
-  .project { padding:27px 26px; }
+  .project { width: 71px; padding:27px 26px; }
   .project p { display:none;  }
   .project span {
     display: block;
