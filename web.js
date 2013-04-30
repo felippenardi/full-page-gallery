@@ -34,9 +34,9 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.get('/projetos', routes.internas);
-app.get('/perfil', routes.internas);
-app.get('/contato', routes.internas);
+app.get('/projetos', routes.index);
+app.get('/perfil', routes.index);
+app.get('/contato', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // redirect all others to the index (HTML5 history)
