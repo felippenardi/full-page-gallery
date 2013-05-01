@@ -84,6 +84,12 @@
 
 /* Nested Swipers*/
 /*.swiper-nested1 { margin-bottom:30px; }*/
+.page {
+  position: absolute;
+  top: 105px;
+  position: absolute;
+  z-index: 20;
+}
 .swiper-nested1, .swiper-nested1 .swiper-slide {
 	width:100%;
   /*height:100%;*/

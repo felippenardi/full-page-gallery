@@ -47,7 +47,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
         $scope.swipers = {
             horizontalSwiper: {
-                prevSlide:($routeParams.projeto) ? $routeParams.projeto : 0,
+                prevSlide: ($routeParams.projeto) ? $routeParams.projeto : 0,
                 swiper:
                 $('.swiper-horizontal').swiper({
                     pagination : '.pagination-horizontal',
@@ -68,10 +68,17 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
                         $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
+                        $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
+
+                        //if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
+                            //console.log("<<< ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'<'+$scope.swipers.horizontalSwiper.prevSlide);
+                        //} else {
+                            //console.log(">>> ... "+$scope.swipers.horizontalSwiper.swiper.activeSlide+'>'+$scope.swipers.horizontalSwiper.prevSlide);
+                        //}
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
 
                         // Bypass swiper bug that hides pagination
-                        $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
+                        //$('.swiper-n'+x+' .page').removeClass("pagination-nested2");
 
                     },
                     onSlideChangeEnd : function() {
