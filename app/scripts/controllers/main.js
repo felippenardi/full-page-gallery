@@ -69,11 +69,20 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+
+                        // Bypass swiper bug that hides pagination
+                        $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
+
                     },
                     onSlideChangeEnd : function() {
                         //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
                         //var y = $scope.swipers.verticalSwipers.swipers[x];
                         //y.swipeTo(0,0, false);
+                        var xSlider = $scope.swipers.horizontalSwiper.swiper;
+                        var x = xSlider.activeSlide;
+
+                        // Bypass swiper bug that hides pagination
+                        $('.swiper-n'+x+' .page').addClass("pagination-nested2");
                     }
                 })
             },
@@ -85,7 +94,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                     console.log(projetos.length);
                     for (i=0; i<projetos.length; i++) {
                         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'>"+
-                                        "<div class='pagination-nested2 pagination-n"+i+"'></div>"+
+                                        "<div class='page pagination-nested2 pagination-n"+i+"'></div>"+
                                         "<div class='swiper-wrapper'>"+
                                    "</div> </div>";
                         $scope.createNewSlide($scope.swipers.horizontalSwiper.swiper, html);

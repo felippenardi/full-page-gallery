@@ -316,9 +316,10 @@ li {
 
 #contato p {
   color:#BBB7A8;
-  font-weight:normal;
   margin:5px 0;
-  font-size:15px;
+  font-family:Helvetica, sans-serif;
+  font-size:14px;
+  font-weight:normal;
 }
 
 #contato p a {
