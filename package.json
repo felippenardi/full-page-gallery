@@ -2,8 +2,8 @@
     "name": "heroku",
     "version": "0.0.1",
     "dependencies": {
-        "express": "2.5.x",
-    /,
+        "express": "2.5.x"
+    },
     "devDependencies": {
         "npm": "1.1.x",
         "grunt": "0.4.0rc7",
