@@ -21,6 +21,7 @@ app.configure(function(){
   app.use(app.router);
 });
 
+app.register('.html', require('jade'));
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
