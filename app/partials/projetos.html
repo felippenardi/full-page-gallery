@@ -1,0 +1,28 @@
+<div class="row">
+  <div id="projetos" class="large-12 columns">
+    <div class="filter">
+      <h1>Projetos</h1>
+    </div>
+  </div>
+</div>
+<div class="row project-grid"><span ng-repeat="category in content">
+    <div class="small-12 large-3 collapse columns">
+      <div class="box verde">
+        <h1>{{category.nome}}</h1>
+      </div>
+    </div>
+    <span ng-repeat="project in category.projetos">
+      <div class="small-12 large-3 collapse columns">
+        <div class="box marrom">
+          <p>{{project.nome}}</p><a href="/?projeto={{project.ordem}}">Ver detalhe</a>
+        </div>
+      </div>
+      <div class="small-12 large-3 collapse columns">
+        <a href="/?projeto={{project.ordem}}">
+          <div style="background:url({{project.thumb}});" class="box cover last">
+          </div>
+        </a>
+      </div>
+    </span>
+  </span>
+</div>

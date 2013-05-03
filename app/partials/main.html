@@ -1,0 +1,32 @@
+<div class="swiper-container swiper-nested1 swiper-horizontal">
+  <div class="pagination-nested1 pagination-horizontal"></div>
+  <div class="swiper-wrapper">
+  </div>
+</div>
+<div class="project-container">
+  <div class="project-box">
+    <div ng-click="toggle()" ng-class="isActive" class="project"><span></span>
+      <p>{{content[activeProject].nome}}</p>
+    </div>
+    <div ng-click="goLeft()" class="nav-left"><span></span></div>
+    <div ng-click="goDown()" class="nav-down"><span></span></div>
+    <div ng-click="goRight()" class="nav-right"><span></span></div>
+  </div>
+  <div ng-show="isVisible" class="description-box">
+    <div class="box">
+      <h1>{{content[activeProject].nome}}</h1>
+      <h1>Ano</h1>
+      <p>{{content[activeProject].ano}}</p>
+      <h1>Localização</h1>
+      <p>{{content[activeProject].localizacao}}</p>
+      <h1>Tipo</h1>
+      <p>{{content[activeProject].categoria}}</p>
+    </div>
+    <div class="box">
+      <h1>Créditos</h1>
+      <p ng-repeat="credito in content[activeProject].creditos">{{credito.nome}}</p>
+      <h1>Equipe</h1>
+      <p ng-repeat="membro in content[activeProject].equipe">{{membro.nome}}</p>
+    </div>
+  </div>
+</div>
