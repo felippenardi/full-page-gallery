@@ -9,16 +9,16 @@ html,
 body {
   font-size: 100%; }
 
-body {
-  background: white;
-  color: #222222;
-  padding: 0;
-  margin: 0;
+/*body {*/
+  /*background: white;*/
+  /*color: #222222;*/
+  /*padding: 0;*/
+  /*margin: 0;*/
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
-  line-height: 1;
-  position: relative; }
+  /*line-height: 1;*/
+  /*position: relative; }*/
 
 a:focus {
   outline: none; }
