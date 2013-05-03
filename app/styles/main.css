@@ -326,6 +326,15 @@ li {
   color: #FFF;
 }
 
+.group-projeto .box.marrom {
+  display:none;
+}
+.group-projeto:hover .box.marrom {
+  display:block;
+  position: absolute;
+  z-index: 1000;
+  width:100%;
+}
 
 @media screen and (max-width: 600px) {
   .nav-left, .nav-down, .nav-right {
