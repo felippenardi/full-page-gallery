@@ -111,7 +111,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             pagination : '.pagination-n'+i,
                             slidesPerSlide : 1,
                             mode: 'vertical',
-                            keyboardControl : true,
+                            //keyboardControl : true,
                             mousewheelControl : true,
                             onSlideChangeStart: function(i) {
                             },
@@ -125,16 +125,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         for (var k=0; k < projetos[i].galeria.length; k++) {
                             var html = projetos[i].galeria[k].low_res;
                             var formato = projetos[i].galeria[k].formato;
-                            if (formato === "tela-cheia") {
-                                formato = "no-repeat center center fixed"+
-                                    ";-webkit-background-size: cover; -moz-background-size: cover;"+
-                                    " -o-background-size: cover; background-size: cover;width:100%;height:100%;";
-                            } else if (formato === "vertical") {
-                                formato = "no-repeat fixed center"+
-                                    ";-webkit-background-size: auto 100%; -moz-background-size: auto 100%;"+
-                                    " -o-background-size: auto 100%; background-size: auto 100%;width:100%;height:100%;";
-                            }
-                            html = '<div style="position:absolute;top:0;left:0;bottom:0;top:0;background: url('+html+') '+formato+'"></div>';
+                            html = '<div class="background '+formato+'" style="background-image: url('+html+')"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
@@ -142,30 +133,30 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             }
         }
         $scope.swipers.verticalSwipers.generate();
-        console.log($scope.swipers.verticalSwipers.swipers[0].currentSlide());
+        //console.log($scope.swipers.verticalSwipers.swipers[0].currentSlide());
 
-        //$(document).keydown(function (e) {
-            //if(!e) {
-                //e = window.event;
-            //}
-            //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
-            //var y = $scope.swipers.verticalSwipers.swipers[x];
-            //switch(e.keyCode) {
-                //case 38:
-                    //console.log('up');
-                    //y.swipePrev();
-                    //break;
-                //case 40:
-                    //console.log('down');
-                    //if (y.activeSlide === y.slides.length - 1) {
-                        //console.log('subindo');
-                        //y.swipeTo(0, 3000, true);
-                    //}  else {
-                        //y.swipeNext();
-                    //}
-                    //break;
-            //}
-        //});
+        $(document).keydown(function (e) {
+            if(!e) {
+                e = window.event;
+            }
+            var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
+            var y = $scope.swipers.verticalSwipers.swipers[x];
+            switch(e.keyCode) {
+                case 38:
+                    console.log('up');
+                    y.swipePrev();
+                    break;
+                case 40:
+                    console.log('down');
+                    if (y.activeSlide === y.slides.length - 1) {
+                        console.log('subindo');
+                        y.swipeTo(0, 1000, true);
+                    }  else {
+                        y.swipeNext();
+                    }
+                    break;
+            }
+        });
 
 
         $scope.fitFullPage();
@@ -201,6 +192,13 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             y.swipeNext();
         }
     }
+
+
+    function preloader(){
+        document.body.className = "loaded";
+        //document.getElementById("content").style.display = "block";
+    }//preloader
+    window.onload = preloader;
 });
 
 
@@ -217,5 +215,6 @@ app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $rootS
         })
     };
     $scope.populate();
-
 });
+
+

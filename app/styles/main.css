@@ -22,12 +22,38 @@ div {
   box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+.background {
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width:100%;
+  height:100%;
+}
+.background.vertical {
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+  -webkit-background-size: auto 100%;
+  -moz-background-size: auto 100%;
+  -o-background-size: auto 100%;
+  background-size: auto 100%;
+  width:100%;
+  height:100%;
+}
+
 .columns.collapse {
   padding-left:1px;
   padding-right:1px;
 }
 
-body {background:#635c4a;}
+body {
+  transition: background 1s;
+  background:#635c4a;
+}
 
 .top-bar {
   height:85px;
