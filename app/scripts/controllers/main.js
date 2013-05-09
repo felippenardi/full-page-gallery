@@ -1,6 +1,5 @@
 'use strict';
 
-var app = angular.module('herokuApp');
 app.run(function ($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function(ev,data) {
         if (data.$route && data.$route.controller)
@@ -12,7 +11,7 @@ app.run(function ($rootScope) {
             route === "partials/contato" ?   $rootScope.onContato  = true : $rootScope.onContato  = false;
     })
 });
-app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope, $http) {
+app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope, $http, $compile) {
     $scope.populate = function() {
         var url = 'data.json';
         $http.get(url).success(function(response){
@@ -61,13 +60,14 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         var x = xSlider.activeSlide;
                         var y = ySliders[x].activeSlide;
 
-                        $scope.swipers.verticalSwipers.swipers[x].swipeTo(0,0, true);
-                        for (var i=0; i< xSlider.slides.length; i++) {
-                            ySliders[i].swipeTo(0,0,0,false);
-                        }
+                        //$scope.swipers.verticalSwipers.swipers[x].swipeTo(0,0, true);
+                        //for (var i=0; i< xSlider.slides.length; i++) {
+                            //ySliders[i].swipeTo(0,0,0,false);
+                        //}
 
                         $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
+                        // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
 
                         //if ($scope.swipers.horizontalSwiper.prevSlide > $scope.swipers.horizontalSwiper.swiper.activeSlide) {
@@ -77,8 +77,14 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         //}
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
 
-                        // Bypass swiper bug that hides pagination
-                        //$('.swiper-n'+x+' .page').removeClass("pagination-nested2");
+
+                        //TODO
+                        //console.log(2);
+                        //(function showBg() {
+                            //var slide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div');
+                            //var dataStyle = slide.attr('data-style');
+                            //slide.attr('style', dataStyle);
+                        //})();
 
                     },
                     onSlideChangeEnd : function() {
@@ -111,9 +117,62 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             pagination : '.pagination-n'+i,
                             slidesPerSlide : 1,
                             mode: 'vertical',
-                            //keyboardControl : true,
                             mousewheelControl : true,
-                            onSlideChangeStart: function(i) {
+                            onSlideChangeStart: function(slide) {
+                                var xSlider = $scope.swipers.horizontalSwiper.swiper;
+                                var ySliders = $scope.swipers.verticalSwipers.swipers;
+                                var x = xSlider.activeSlide;
+                                var y = ySliders[x].activeSlide;
+
+                                (function showBg() {
+                                    var slide = function(innerX, innerY) {
+                                        return $('.swiper-n'+innerX+' .swiper-wrapper .swiper-slide div:eq('+innerY+')');
+                                    };
+
+                                    var lowRes = function(innerX, innerY) {
+                                        make('low-res', innerX, innerY);
+                                    };
+                                    var highRes = function(innerX, innerY) {
+                                        make('low-res', innerX, innerY);
+                                    };
+                                    var hide = function(innerX, innerY) {
+                                        slide(innerX,innerY).css('display', 'none');
+                                    };
+                                    var make = function(prop, innerX, innerY) {
+                                        var currentAttr = slide(innerX, innerY).attr('style');
+                                        var attr = slide(innerX, innerY).attr(prop);
+                                        if (attr !== currentAttr) {
+                                            slide(innerX,innerY).attr('style', attr);
+                                            //slide(innerX,innerY).css('display', 'block');
+                                        }
+                                    };
+
+                                    highRes(x, y);
+                                    highRes(x, (y+1) );
+                                    highRes(x, (y-1) );
+                                    lowRes(x, (y+2) );
+                                    lowRes(x, (y-2) );
+                                    hide(x, (y-4) );
+                                    hide(x, (y+4) );
+
+                                    //console.log(slide.container);
+                                    //console.log("vertical onSldieChangeStart");
+                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').each(function() {
+                                        //var dataStyle = $(this).attr('data-style');
+                                        //$(this).attr('style', dataStyle);
+                                    //});
+                                    //var dataStyle = $(this).attr('data-style');
+                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').attr('style', dataStyle);
+                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').each(function() {
+                                        //var dataStyle = $(this).attr('data-style');
+                                        //$(this).attr('style', dataStyle);
+                                    //});
+                                    //console.log($('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+(y-1)+')'));
+                                    //console.log($('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+(y+1)+')'));
+                                    //var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
+                                    //var lowRes = currentSlide.attr('low-res');
+                                    //currentSlide.attr('style', lowRes);
+                                })();
                             },
                             onSlideChangeEnd : function(i) {
                                 $scope.$apply(function() {
@@ -123,9 +182,11 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             }
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
-                            var html = projetos[i].galeria[k].low_res;
+                            var html;
+                            var lowRes = projetos[i].galeria[k].low_res;
+                            var highRes = projetos[i].galeria[k].high_res;
                             var formato = projetos[i].galeria[k].formato;
-                            html = '<div class="background '+formato+'" style="background-image: url('+html+')"></div>';
+                            html = '<div class="background '+formato+'" high-res="background-image: url('+highRes+')" low-res="background-image: url('+lowRes+')" style="display:none;"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
@@ -164,16 +225,16 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         $scope.$on('$routeUpdate', function (scope, next, current) {
             var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
             var foto = ($routeParams.foto) ? $routeParams.foto : 0;
-            $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
-            $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
+            //$scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
+            //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
             $scope.activeProject = $routeParams.projeto;
         });
 
         // TODO REMOVE GLOBAL VARIABLE
         var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
         var foto = ($routeParams.foto) ? $routeParams.foto : 0;
-        $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
-        $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
+        //$scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
+        //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
         $scope.activeProject = 0;
 
     }

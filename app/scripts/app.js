@@ -29,3 +29,4 @@ var app = angular.module('herokuApp', [])
       });
     $locationProvider.html5Mode(true);
   });
+//var app = angular.module('herokuApp');
