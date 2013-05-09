@@ -77,15 +77,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         //}
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
 
-
-                        //TODO
-                        //console.log(2);
-                        //(function showBg() {
-                            //var slide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div');
-                            //var dataStyle = slide.attr('data-style');
-                            //slide.attr('style', dataStyle);
-                        //})();
-
                     },
                     onSlideChangeEnd : function() {
                         //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
@@ -155,23 +146,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                                     hide(x, (y-4) );
                                     hide(x, (y+4) );
 
-                                    //console.log(slide.container);
-                                    //console.log("vertical onSldieChangeStart");
-                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').each(function() {
-                                        //var dataStyle = $(this).attr('data-style');
-                                        //$(this).attr('style', dataStyle);
-                                    //});
-                                    //var dataStyle = $(this).attr('data-style');
-                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').attr('style', dataStyle);
-                                    //$('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')').each(function() {
-                                        //var dataStyle = $(this).attr('data-style');
-                                        //$(this).attr('style', dataStyle);
-                                    //});
-                                    //console.log($('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+(y-1)+')'));
-                                    //console.log($('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+(y+1)+')'));
-                                    //var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
-                                    //var lowRes = currentSlide.attr('low-res');
-                                    //currentSlide.attr('style', lowRes);
                                 })();
                             },
                             onSlideChangeEnd : function(i) {
