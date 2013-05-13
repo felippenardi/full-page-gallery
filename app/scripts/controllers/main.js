@@ -24,7 +24,31 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
     };
     $scope.populate();
 
+    $scope.bgLoad = {};
+    $scope.bgLoad.slide = function(innerX, innerY) {
+        return $('.swiper-n'+innerX+' .swiper-wrapper .swiper-slide div:eq('+innerY+')');
+    };
+    $scope.bgLoad.lowRes = function(innerX, innerY) {
+        $scope.bgLoad.make('low-res', innerX, innerY);
+    };
+    $scope.bgLoad.highRes = function(innerX, innerY) {
+        $scope.bgLoad.make('low-res', innerX, innerY);
+    };
+    $scope.bgLoad.hide = function(innerX, innerY) {
+        $scope.bgLoad.slide(innerX,innerY).css('display', 'none');
+    };
+    $scope.bgLoad.make = function(prop, innerX, innerY) {
+        var currentAttr = $scope.bgLoad.slide(innerX, innerY).attr('style');
+        var attr = $scope.bgLoad.slide(innerX, innerY).attr(prop);
+        if (attr !== currentAttr) {
+            $scope.bgLoad.slide(innerX,innerY).attr('style', attr);
+            //slide(innerX,innerY).css('display', 'block');
+        }
+    };
+
+
     $scope.initialize = function() {
+        //$scope.showBg(($routeParams.projeto) ? $routeParams.projeto : 0, ($routeParams.foto) ? $routeParams.foto : 0);
         $scope.fitFullPage = function _fitFullPage(){
             $('[class*=swiper-n]').css("height",$(window).height());
             $('.swiper-container').css("height",$(window).height());
@@ -54,7 +78,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                     initialSlide : 0,
                     grabCursor: true,
                     keyboardControl : true,
-                    onSlideChangeStart : function() {
+                    SlideChangeStart : function() {
                         var xSlider = $scope.swipers.horizontalSwiper.swiper;
                         var ySliders = $scope.swipers.verticalSwipers.swipers;
                         var x = xSlider.activeSlide;
@@ -65,7 +89,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             //ySliders[i].swipeTo(0,0,0,false);
                         //}
 
-                        $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
 
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
@@ -77,16 +100,31 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         //}
                         $scope.swipers.horizontalSwiper.prevSlide = $scope.swipers.horizontalSwiper.swiper.activeSlide;
 
+
                     },
                     onSlideChangeEnd : function() {
                         //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
                         //var y = $scope.swipers.verticalSwipers.swipers[x];
                         //y.swipeTo(0,0, false);
                         var xSlider = $scope.swipers.horizontalSwiper.swiper;
+                        var ySliders = $scope.swipers.verticalSwipers.swipers;
                         var x = xSlider.activeSlide;
+                        var y = ySliders[x].activeSlide;
 
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').addClass("pagination-nested2");
+
+                        var innerX = x;
+                        var innerY = y;
+                        $scope.bgLoad.highRes(innerX, innerY);
+                        $scope.bgLoad.highRes(innerX, (innerY+1) );
+                        $scope.bgLoad.highRes(innerX, (innerY-1) );
+                        $scope.bgLoad.lowRes(innerX, (innerY+2) );
+                        $scope.bgLoad.lowRes(innerX, (innerY-2) );
+                        $scope.bgLoad.hide(innerX, (innerY-4) );
+                        $scope.bgLoad.hide(innerX, (innerY+4) );
+
+                        $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
                     }
                 })
             },
@@ -115,38 +153,16 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                                 var x = xSlider.activeSlide;
                                 var y = ySliders[x].activeSlide;
 
-                                (function showBg() {
-                                    var slide = function(innerX, innerY) {
-                                        return $('.swiper-n'+innerX+' .swiper-wrapper .swiper-slide div:eq('+innerY+')');
-                                    };
 
-                                    var lowRes = function(innerX, innerY) {
-                                        make('low-res', innerX, innerY);
-                                    };
-                                    var highRes = function(innerX, innerY) {
-                                        make('low-res', innerX, innerY);
-                                    };
-                                    var hide = function(innerX, innerY) {
-                                        slide(innerX,innerY).css('display', 'none');
-                                    };
-                                    var make = function(prop, innerX, innerY) {
-                                        var currentAttr = slide(innerX, innerY).attr('style');
-                                        var attr = slide(innerX, innerY).attr(prop);
-                                        if (attr !== currentAttr) {
-                                            slide(innerX,innerY).attr('style', attr);
-                                            //slide(innerX,innerY).css('display', 'block');
-                                        }
-                                    };
-
-                                    highRes(x, y);
-                                    highRes(x, (y+1) );
-                                    highRes(x, (y-1) );
-                                    lowRes(x, (y+2) );
-                                    lowRes(x, (y-2) );
-                                    hide(x, (y-4) );
-                                    hide(x, (y+4) );
-
-                                })();
+                                var innerX = x;
+                                var innerY = y;
+                                $scope.bgLoad.highRes(innerX, innerY);
+                                $scope.bgLoad.highRes(innerX, (innerY+1) );
+                                $scope.bgLoad.highRes(innerX, (innerY-1) );
+                                $scope.bgLoad.lowRes(innerX, (innerY+2) );
+                                $scope.bgLoad.lowRes(innerX, (innerY-2) );
+                                $scope.bgLoad.hide(innerX, (innerY-4) );
+                                $scope.bgLoad.hide(innerX, (innerY+4) );
                             },
                             onSlideChangeEnd : function(i) {
                                 $scope.$apply(function() {
@@ -156,10 +172,12 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             }
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
+                            console.log(style);
                             var html;
                             var lowRes = projetos[i].galeria[k].low_res;
                             var highRes = projetos[i].galeria[k].high_res;
                             var formato = projetos[i].galeria[k].formato;
+                            var style = k===0 ? 'style="background-image: url('+highRes+')"' : 'style="display: block;"';
                             html = '<div class="background '+formato+'" high-res="background-image: url('+highRes+')" low-res="background-image: url('+lowRes+')" style="display:none;"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
@@ -197,19 +215,39 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         $scope.fitFullPage();
 
         $scope.$on('$routeUpdate', function (scope, next, current) {
-            var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
-            var foto = ($routeParams.foto) ? $routeParams.foto : 0;
-            //$scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
+            var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : 0 ), 10);
+            var foto = parseInt(( ($routeParams.foto) ? $routeParams.foto : 0 ), 10);
+            $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
             //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
             $scope.activeProject = $routeParams.projeto;
+
+            $scope.activeProject = 0;
+            $scope.bgLoad.highRes(projeto, foto);
+            $scope.bgLoad.highRes(projeto, (foto - 1) );
+            $scope.bgLoad.highRes(projeto, (foto + 1) );
+            $scope.bgLoad.highRes( (projeto - 1) , 0);
+            $scope.bgLoad.highRes( (projeto + 1) , 0);
+            $scope.bgLoad.hide(projeto, (foto - 2) );
+            $scope.bgLoad.hide(projeto, (foto + 2) );
+            $scope.bgLoad.hide( (projeto - 2) , 0);
+            $scope.bgLoad.hide( (projeto + 2) , 0);
         });
 
-        // TODO REMOVE GLOBAL VARIABLE
-        var projeto = ($routeParams.projeto) ? $routeParams.projeto : 0;
-        var foto = ($routeParams.foto) ? $routeParams.foto : 0;
-        //$scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
-        //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
+        var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : 0 ), 10);
+        var foto = parseInt(( ($routeParams.foto) ? $routeParams.foto : 0 ), 10);
+        $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
+        $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
         $scope.activeProject = 0;
+        $scope.bgLoad.highRes(projeto, foto);
+        $scope.bgLoad.highRes(projeto, (foto - 1) );
+        $scope.bgLoad.highRes(projeto, (foto + 1) );
+        $scope.bgLoad.highRes( (projeto - 1) , 0);
+        $scope.bgLoad.highRes( (projeto + 1) , 0);
+        $scope.bgLoad.hide(projeto, (foto - 2) );
+        $scope.bgLoad.hide(projeto, (foto + 2) );
+        $scope.bgLoad.hide( (projeto - 2) , 0);
+        $scope.bgLoad.hide( (projeto + 2) , 0);
+
 
     }
     $scope.goLeft = function() {
