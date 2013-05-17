@@ -24,33 +24,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
     };
     $scope.populate();
 
-    $scope.bgLoad = {};
-    $scope.bgLoad.slide = function(innerX, innerY) {
-        return $('.swiper-n'+innerX+' .swiper-wrapper .swiper-slide div:eq('+innerY+')');
-    };
-    $scope.bgLoad.lowRes = function(innerX, innerY) {
-        $scope.bgLoad.make('low-res', innerX, innerY);
-    };
-    $scope.bgLoad.highRes = function(innerX, innerY) {
-        $scope.bgLoad.make('high-res', innerX, innerY);
-    };
-    $scope.bgLoad.hide = function(innerX, innerY) {
-        var thisSlide = $scope.bgLoad.slide(innerX,innerY);
-        if (!thisSlide.attr('display') === 'none') {
-            thisSlide.css('display', 'none');
-        }
-    };
-    $scope.bgLoad.make = function(prop, innerX, innerY) {
-        var thisSlide = $scope.bgLoad.slide(innerX,innerY);
-        var currentAttr = thisSlide.attr('style');
-        var attr = thisSlide.attr(prop);
-        if (attr !== currentAttr) {
-            $scope.bgLoad.slide(innerX,innerY).attr('style', attr);
-            //slide(innerX,innerY).css('display', 'block');
-        }
-    };
-
-
     $scope.initialize = function() {
         //$scope.showBg(($routeParams.projeto) ? $routeParams.projeto : 0, ($routeParams.foto) ? $routeParams.foto : 0);
         $scope.fitFullPage = function _fitFullPage(){
@@ -89,11 +62,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         var x = xSlider.activeSlide;
                         var y = ySliders[x].activeSlide;
 
-                        //$scope.swipers.verticalSwipers.swipers[x].swipeTo(0,0, true);
-                        //for (var i=0; i< xSlider.slides.length; i++) {
-                            //ySliders[i].swipeTo(0,0,0,false);
-                        //}
-
 
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').removeClass("pagination-nested2");
@@ -108,9 +76,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
                     },
                     onSlideChangeEnd : function() {
-                        //var x = $scope.swipers.horizontalSwiper.swiper.activeSlide;
-                        //var y = $scope.swipers.verticalSwipers.swipers[x];
-                        //y.swipeTo(0,0, false);
                         var xSlider = $scope.swipers.horizontalSwiper.swiper;
                         var ySliders = $scope.swipers.verticalSwipers.swipers;
                         var x = xSlider.activeSlide;
@@ -119,15 +84,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').addClass("pagination-nested2");
 
-                        var innerX = x;
-                        var innerY = y;
-                        $scope.bgLoad.highRes(innerX, innerY);
-                        $scope.bgLoad.highRes(innerX, (innerY+1) );
-                        $scope.bgLoad.highRes(innerX, (innerY-1) );
-                        $scope.bgLoad.lowRes(innerX, (innerY+2) );
-                        $scope.bgLoad.lowRes(innerX, (innerY-2) );
-                        $scope.bgLoad.hide(innerX, (innerY-4) );
-                        $scope.bgLoad.hide(innerX, (innerY+4) );
 
                         $scope.$apply($location.search({'projeto': x, 'foto' : 0}));
                     }
@@ -157,17 +113,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                                 var ySliders = $scope.swipers.verticalSwipers.swipers;
                                 var x = xSlider.activeSlide;
                                 var y = ySliders[x].activeSlide;
-
-
-                                var innerX = x;
-                                var innerY = y;
-                                $scope.bgLoad.highRes(innerX, innerY);
-                                $scope.bgLoad.highRes(innerX, (innerY+1) );
-                                $scope.bgLoad.highRes(innerX, (innerY-1) );
-                                $scope.bgLoad.lowRes(innerX, (innerY+2) );
-                                $scope.bgLoad.lowRes(innerX, (innerY-2) );
-                                $scope.bgLoad.hide(innerX, (innerY-4) );
-                                $scope.bgLoad.hide(innerX, (innerY+4) );
                             },
                             onSlideChangeEnd : function(i) {
                                 $scope.$apply(function() {
@@ -191,7 +136,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             }
         }
         $scope.swipers.verticalSwipers.generate();
-        //console.log($scope.swipers.verticalSwipers.swipers[0].currentSlide());
 
         $(document).keydown(function (e) {
             if(!e) {
@@ -228,31 +172,13 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
             console.log($scope.activeProject);
 
-            $scope.bgLoad.highRes(projeto, foto);
-            $scope.bgLoad.highRes(projeto, (foto - 1) );
-            $scope.bgLoad.highRes(projeto, (foto + 1) );
-            $scope.bgLoad.highRes( (projeto - 1) , 0);
-            $scope.bgLoad.highRes( (projeto + 1) , 0);
-            $scope.bgLoad.hide(projeto, (foto - 2) );
-            $scope.bgLoad.hide(projeto, (foto + 2) );
-            $scope.bgLoad.hide( (projeto - 2) , 0);
-            $scope.bgLoad.hide( (projeto + 2) , 0);
         });
 
         var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : 0 ), 10);
         var foto = parseInt(( ($routeParams.foto) ? $routeParams.foto : 0 ), 10);
         $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
-        $scope.activeProject = 0;
-        $scope.bgLoad.highRes(projeto, foto);
-        $scope.bgLoad.highRes(projeto, (foto - 1) );
-        $scope.bgLoad.highRes(projeto, (foto + 1) );
-        $scope.bgLoad.highRes( (projeto - 1) , 0);
-        $scope.bgLoad.highRes( (projeto + 1) , 0);
-        $scope.bgLoad.hide(projeto, (foto - 2) );
-        $scope.bgLoad.hide(projeto, (foto + 2) );
-        $scope.bgLoad.hide( (projeto - 2) , 0);
-        $scope.bgLoad.hide( (projeto + 2) , 0);
+        $scope.activeProject = $routeParams.projeto;
 
 
     }
@@ -272,12 +198,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         }
     }
 
-
-    function preloader(){
-        document.body.className = "loaded";
-        //document.getElementById("content").style.display = "block";
-    }//preloader
-    window.onload = preloader;
 });
 
 
