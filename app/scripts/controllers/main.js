@@ -24,6 +24,34 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
     };
     $scope.populate();
 
+    $scope.loadImageBackground = function() {
+      var xSlider = $scope.swipers.horizontalSwiper.swiper;
+      var ySliders = $scope.swipers.verticalSwipers.swipers;
+      var x = xSlider.activeSlide;
+      var y = ySliders[x].activeSlide;
+
+      $(function() {
+        var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
+        if ( currentSlide.attr("low-res") ) {
+          $("#image_loader").attr( "src", currentSlide.attr("low-res") );
+          $("#image_loader").load(function() {
+            if (currentSlide.attr("low-res")){
+              currentSlide.attr("style", "background-image:url("+currentSlide.attr("low-res")+");");
+              currentSlide.removeAttr("low-res");
+            }
+            if (currentSlide.attr("high-res")) {
+              $("#image_loader").attr( "src", currentSlide.attr("high-res") );
+              $("#image_loader").load(function() {
+                if (currentSlide.attr("high-res")){
+                  currentSlide.attr("style", "background-image:url("+currentSlide.attr("high-res")+");");
+                  currentSlide.removeAttr("high-res");
+                }
+              });
+            }
+          });
+        }
+      });
+    };
     $scope.initialize = function() {
         //$scope.showBg(($routeParams.projeto) ? $routeParams.projeto : 0, ($routeParams.foto) ? $routeParams.foto : 0);
         $scope.fitFullPage = function _fitFullPage(){
@@ -81,6 +109,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         var x = xSlider.activeSlide;
                         var y = ySliders[x].activeSlide;
 
+                        $scope.loadImageBackground();
+
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').addClass("pagination-nested2");
 
@@ -111,36 +141,11 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             onSlideChangeStart: function(slide) {
                             },
                             onSlideChangeEnd : function(i) {
-                                var xSlider = $scope.swipers.horizontalSwiper.swiper;
-                                var ySliders = $scope.swipers.verticalSwipers.swipers;
-                                var x = xSlider.activeSlide;
-                                var y = ySliders[x].activeSlide;
-
-                                $(function() {
-                                  var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
-                                  if ( currentSlide.attr("low-res") ) {
-                                    $("#image_loader").attr( "src", currentSlide.attr("low-res") );
-                                    $("#image_loader").load(function() {
-                                      if (currentSlide.attr("low-res")){
-                                        currentSlide.attr("style", "background-image:url("+currentSlide.attr("low-res")+");");
-                                        currentSlide.removeAttr("low-res");
-                                      }
-                                      if (currentSlide.attr("high-res")) {
-                                        $("#image_loader").attr( "src", currentSlide.attr("high-res") );
-                                        $("#image_loader").load(function() {
-                                          if (currentSlide.attr("high-res")){
-                                            currentSlide.attr("style", "background-image:url("+currentSlide.attr("high-res")+");");
-                                            currentSlide.removeAttr("high-res");
-                                          }
-                                        });
-                                      }
-                                    });
-                                  }
-                                });
-                                $scope.$apply(function() {
-                                    $location.search('foto',i.activeSlide)
-                                    $scope.fitFullPage();
-                                });
+                              $scope.loadImageBackground();
+                              $scope.$apply(function() {
+                                $location.search('foto',i.activeSlide)
+                                $scope.fitFullPage();
+                              });
                             }
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
