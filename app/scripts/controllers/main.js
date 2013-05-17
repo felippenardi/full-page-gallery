@@ -32,7 +32,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         $scope.bgLoad.make('low-res', innerX, innerY);
     };
     $scope.bgLoad.highRes = function(innerX, innerY) {
-        $scope.bgLoad.make('low-res', innerX, innerY);
+        $scope.bgLoad.make('high-res', innerX, innerY);
     };
     $scope.bgLoad.hide = function(innerX, innerY) {
         var thisSlide = $scope.bgLoad.slide(innerX,innerY);
