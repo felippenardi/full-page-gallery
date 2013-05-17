@@ -109,12 +109,34 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             mode: 'vertical',
                             mousewheelControl : true,
                             onSlideChangeStart: function(slide) {
+                            },
+                            onSlideChangeEnd : function(i) {
                                 var xSlider = $scope.swipers.horizontalSwiper.swiper;
                                 var ySliders = $scope.swipers.verticalSwipers.swipers;
                                 var x = xSlider.activeSlide;
                                 var y = ySliders[x].activeSlide;
-                            },
-                            onSlideChangeEnd : function(i) {
+
+                                $(function() {
+                                  var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
+                                  if ( currentSlide.attr("low-res") ) {
+                                    $("#image_loader").attr( "src", currentSlide.attr("low-res") );
+                                    $("#image_loader").load(function() {
+                                      if (currentSlide.attr("low-res")){
+                                        currentSlide.attr("style", "background-image:url("+currentSlide.attr("low-res")+");");
+                                        currentSlide.removeAttr("low-res");
+                                      }
+                                      if (currentSlide.attr("high-res")) {
+                                        $("#image_loader").attr( "src", currentSlide.attr("high-res") );
+                                        $("#image_loader").load(function() {
+                                          if (currentSlide.attr("high-res")){
+                                            currentSlide.attr("style", "background-image:url("+currentSlide.attr("high-res")+");");
+                                            currentSlide.removeAttr("high-res");
+                                          }
+                                        });
+                                      }
+                                    });
+                                  }
+                                });
                                 $scope.$apply(function() {
                                     $location.search('foto',i.activeSlide)
                                     $scope.fitFullPage();
@@ -128,7 +150,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             var highRes = projetos[i].galeria[k].high_res;
                             var formato = projetos[i].galeria[k].formato;
                             var style = k===0 ? 'style="background-image: url('+highRes+')"' : 'style="display: block;"';
-                            html = '<div class="background '+formato+'" high-res="background-image: url('+highRes+')" low-res="background-image: url('+lowRes+')" style="display:none;"></div>';
+                            html = '<div class="background '+formato+'" high-res="'+highRes+'" low-res="'+lowRes+'" style="display:none;"></div>';
                             $scope.createNewSlide($scope.swipers.verticalSwipers.swipers[i], html);
                         }
                     }
