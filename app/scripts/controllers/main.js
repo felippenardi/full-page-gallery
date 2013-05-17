@@ -225,7 +225,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
             $scope.activeProject = $routeParams.projeto;
 
-            $scope.activeProject = 0;
+            console.log($scope.activeProject);
+
             $scope.bgLoad.highRes(projeto, foto);
             $scope.bgLoad.highRes(projeto, (foto - 1) );
             $scope.bgLoad.highRes(projeto, (foto + 1) );
