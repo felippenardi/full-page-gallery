@@ -77,7 +77,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                 prevSlide: ($routeParams.projeto) ? $routeParams.projeto : 0,
                 swiper:
                 $('.swiper-horizontal').swiper({
-                    pagination : '.pagination-horizontal',
+                    createPagination : false,
+                    //pagination : '.pagination-horizontal',
                     slidesPerSlide : 1,
                     initialSlide : 0,
                     grabCursor: true,
