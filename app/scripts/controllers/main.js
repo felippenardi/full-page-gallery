@@ -35,11 +35,15 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         $scope.bgLoad.make('low-res', innerX, innerY);
     };
     $scope.bgLoad.hide = function(innerX, innerY) {
-        $scope.bgLoad.slide(innerX,innerY).css('display', 'none');
+        var thisSlide = $scope.bgLoad.slide(innerX,innerY);
+        if (!thisSlide.attr('display') === 'none') {
+            thisSlide.css('display', 'none');
+        }
     };
     $scope.bgLoad.make = function(prop, innerX, innerY) {
-        var currentAttr = $scope.bgLoad.slide(innerX, innerY).attr('style');
-        var attr = $scope.bgLoad.slide(innerX, innerY).attr(prop);
+        var thisSlide = $scope.bgLoad.slide(innerX,innerY);
+        var currentAttr = thisSlide.attr('style');
+        var attr = thisSlide.attr(prop);
         if (attr !== currentAttr) {
             $scope.bgLoad.slide(innerX,innerY).attr('style', attr);
             //slide(innerX,innerY).css('display', 'block');
