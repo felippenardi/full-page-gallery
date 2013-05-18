@@ -368,6 +368,10 @@ li {
   z-index: 1000;
   width:100%;
 }
+.background {
+  display:none;
+}
+
 
 @media screen and (max-width: 600px) {
   .nav-left, .nav-down, .nav-right {

@@ -50,15 +50,16 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             currentSlide.attr("loaded","true");
             var lowRes = currentSlide.attr("low-res");
             currentSlide.removeAttr("low-res");
-            $("#image_loader").load(function() {
-              //alert("2) " + lowRes);
+            //currentSlide.css("display","none");
+            $("#image_loader").imagesLoaded(function() {
               currentSlide.attr("style", "background-image:url("+lowRes+");");
-              currentSlide.addClass("show");
+              //alert("Will fade in: " + lowRes);
+              currentSlide.hide().fadeTo(500,1);
               //if (currentSlide.attr("high-res")) {
                 //$("#image_loader").attr( "src", currentSlide.attr("high-res") );
                 //var highRes = currentSlide.attr("high-res");
                 //currentSlide.removeAttr("high-res");
-                //$("#image_loader").load(function() {
+                //$("#image_loader").imagesLoaded(function() {
                   //currentSlide.attr("style", "background-image:url("+highRes+");");
                 //});
               //}
@@ -67,10 +68,10 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         }
 
         changeBackground( returnSlide.current(x,y) );
-        changeBackground( returnSlide.current(x,y-1) );
-        changeBackground( returnSlide.current(x,y+1) );
-        changeBackground( returnSlide.current( x-1, yOf(x-1) ) );
-        changeBackground( returnSlide.current( x+1, yOf(x+1) ) );
+        //changebackground( returnslide.current(x,y-1) );
+        //changebackground( returnslide.current(x,y+1) );
+        //changebackground( returnslide.current( x-1, yof(x-1) ) );
+        //changebackground( returnslide.current( x+1, yof(x+1) ) );
 
       }
       loadImage();
