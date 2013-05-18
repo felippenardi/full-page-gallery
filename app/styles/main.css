@@ -368,18 +368,6 @@ li {
   z-index: 1000;
   width:100%;
 }
-.swiper-slide {
-  opacity: 0;
-  display: none;
-
-  -webkit-transition: opacity 0.5s ease-in-out;
-     -moz-transition: opacity 0.5s ease-in-out;
-          transition: opacity 0.5s ease-in-out;
-}
-
-.background.show {
-  opacity:1;
-}
 
 @media screen and (max-width: 600px) {
   .nav-left, .nav-down, .nav-right {
