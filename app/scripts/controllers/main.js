@@ -43,28 +43,21 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         }
 
         function changeBackground(currentSlide) {
+          currentSlide.show();
           if ( currentSlide.attr("low-res") && currentSlide.attr("loaded") !== "true" ) {
-            console.log(currentSlide.attr("high-res"));
-            //alert("1) "+ currentSlide.attr("low-res"));
             $("#image_loader").attr( "src", currentSlide.attr("low-res") );
             currentSlide.attr("loaded","true");
             var lowRes = currentSlide.attr("low-res");
             currentSlide.removeAttr("low-res");
-            //currentSlide.css("display","none");
             $("#image_loader").imagesLoaded(function() {
               currentSlide.attr("style", "background-image:url("+lowRes+");");
-              console.log(currentSlide.attr("high-res"));
-              //alert("Will fade in: " + lowRes);
               currentSlide.hide().fadeTo(500,1, function(){
                 currentSlide.append("<span class='high-res'></span>");
                 if (currentSlide.attr("high-res")) {
-                  console.log(currentSlide.attr("high-res"));
                   $("#image_loader").attr( "src", currentSlide.attr("high-res") );
                   var highRes = currentSlide.attr("high-res");
                   currentSlide.removeAttr("high-res");
                   $("#image_loader").imagesLoaded(function() {
-                    console.log(highRes);
-                    console.log("mudou");
                     currentSlide.find("span.high-res").hide().fadeTo(1000,1)
                     .attr("class", currentSlide.attr("class"))
                     .attr("style", currentSlide.attr("style"))
@@ -81,6 +74,10 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         changeBackground( returnSlide.current(x,y+1) );
         changeBackground( returnSlide.current( x-1, yOf(x-1) ) );
         changeBackground( returnSlide.current( x+1, yOf(x+1) ) );
+        returnSlide.current( x-2, yOf(x-2) ).hide();
+        returnSlide.current( x+2, yOf(x+2) ).hide();
+        returnSlide.current(x,y-2).hide();
+        returnSlide.current(x,y+2).hide();
 
       }
       loadImage();
@@ -231,7 +228,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             $scope.activeProject = $routeParams.projeto;
 
             $scope.loadImageBackground();
-            console.log($scope.activeProject);
+
 
         });
 
