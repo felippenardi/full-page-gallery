@@ -13,9 +13,11 @@
     </div>
     <span class="group-projeto" ng-repeat="project in category.projetos">
       <div class="small-12 large-3 collapse columns">
-        <div class="box marrom">
-          <p>{{project.nome}}</p><a href="/?projeto={{project.ordem}}">Ver detalhe</a>
-        </div>
+        <a href="/?projeto={{project.ordem}}">
+          <div class="box marrom">
+            <p>{{project.nome}}</p>
+          </div>
+        </a>
       </div>
       <div class="small-12 large-3 collapse columns">
         <a href="/?projeto={{project.ordem}}">
