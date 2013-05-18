@@ -68,10 +68,10 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         }
 
         changeBackground( returnSlide.current(x,y) );
-        //changebackground( returnslide.current(x,y-1) );
-        //changebackground( returnslide.current(x,y+1) );
-        //changebackground( returnslide.current( x-1, yof(x-1) ) );
-        //changebackground( returnslide.current( x+1, yof(x+1) ) );
+        changeBackground( returnSlide.current(x,y-1) );
+        changeBackground( returnSlide.current(x,y+1) );
+        changeBackground( returnSlide.current( x-1, yof(x-1) ) );
+        changeBackground( returnSlide.current( x+1, yof(x+1) ) );
 
       }
       loadImage();
