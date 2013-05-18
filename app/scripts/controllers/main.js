@@ -29,28 +29,51 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
       var ySliders = $scope.swipers.verticalSwipers.swipers;
       var x = xSlider.activeSlide;
       var y = ySliders[x].activeSlide;
+      var yOf = function(x) {
+        return ySliders[x].activeSlide;
+      };
 
-      $(function() {
-        var currentSlide = $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
-        if ( currentSlide.attr("low-res") ) {
-          $("#image_loader").attr( "src", currentSlide.attr("low-res") );
-          $("#image_loader").load(function() {
-            if (currentSlide.attr("low-res")){
-              currentSlide.attr("style", "background-image:url("+currentSlide.attr("low-res")+");");
-              currentSlide.removeAttr("low-res");
-            }
-            if (currentSlide.attr("high-res")) {
-              $("#image_loader").attr( "src", currentSlide.attr("high-res") );
-              $("#image_loader").load(function() {
-                if (currentSlide.attr("high-res")){
-                  currentSlide.attr("style", "background-image:url("+currentSlide.attr("high-res")+");");
-                  currentSlide.removeAttr("high-res");
-                }
-              });
-            }
-          });
+      function loadImage() {
+        var returnSlide = {
+          div : function(x, y) {
+            return $('.swiper-n'+x+' .swiper-wrapper .swiper-slide div:eq('+y+')');
+          },
+          current  : function(x,y) { return this.div(x,y); },
+          previous : function(x,y) { return this.div(x,y); }
         }
-      });
+
+        function changeBackground(currentSlide) {
+          console.log(currentSlide);
+          if ( currentSlide.attr("low-res") && currentSlide.attr("loaded") !== "true" ) {
+            //alert("1) "+ currentSlide.attr("low-res"));
+            $("#image_loader").attr( "src", currentSlide.attr("low-res") );
+            currentSlide.attr("loaded","true");
+            var lowRes = currentSlide.attr("low-res");
+            currentSlide.removeAttr("low-res");
+            $("#image_loader").load(function() {
+              //alert("2) " + lowRes);
+              currentSlide.attr("style", "background-image:url("+lowRes+");");
+              currentSlide.addClass("show");
+              //if (currentSlide.attr("high-res")) {
+                //$("#image_loader").attr( "src", currentSlide.attr("high-res") );
+                //var highRes = currentSlide.attr("high-res");
+                //currentSlide.removeAttr("high-res");
+                //$("#image_loader").load(function() {
+                  //currentSlide.attr("style", "background-image:url("+highRes+");");
+                //});
+              //}
+            });
+          }
+        }
+
+        changeBackground( returnSlide.current(x,y) );
+        changeBackground( returnSlide.current(x,y-1) );
+        changeBackground( returnSlide.current(x,y+1) );
+        changeBackground( returnSlide.current( x-1, yOf(x-1) ) );
+        changeBackground( returnSlide.current( x+1, yOf(x+1) ) );
+
+      }
+      loadImage();
     };
     $scope.initialize = function() {
         //$scope.showBg(($routeParams.projeto) ? $routeParams.projeto : 0, ($routeParams.foto) ? $routeParams.foto : 0);
@@ -109,7 +132,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                         var x = xSlider.activeSlide;
                         var y = ySliders[x].activeSlide;
 
-                        $scope.loadImageBackground();
+                        //$scope.loadImageBackground();
+                        ySliders[x].swipeTo(y, 0, true);
 
                         // Bypass swiper bug that hides pagination
                         $('.swiper-n'+x+' .page').addClass("pagination-nested2");
@@ -141,7 +165,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             onSlideChangeStart: function(slide) {
                             },
                             onSlideChangeEnd : function(i) {
-                              $scope.loadImageBackground();
                               $scope.$apply(function() {
                                 $location.search('foto',i.activeSlide)
                                 $scope.fitFullPage();
@@ -197,6 +220,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
             $scope.activeProject = $routeParams.projeto;
 
+            $scope.loadImageBackground();
             console.log($scope.activeProject);
 
         });
@@ -206,6 +230,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
         $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
         $scope.activeProject = $routeParams.projeto;
+        $scope.loadImageBackground();
 
 
     }
