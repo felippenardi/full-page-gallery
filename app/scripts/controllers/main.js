@@ -282,3 +282,15 @@ app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $rootS
 });
 
 
+app.controller('ContatosCtrl', function ($location, $routeParams, $scope, $rootScope, $http, $window) {
+    $scope.populate = function() {
+        var url = 'contatos.json';
+        $http.get(url).success(function(response){
+            $scope.content = response.contatos;
+        })
+        .error(function(data, status, headers, config){
+            console.log("JSON may not exist or is not responding. "+url);
+        })
+    };
+    $scope.populate();
+});

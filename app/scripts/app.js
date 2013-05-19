@@ -21,7 +21,7 @@ var app = angular.module('herokuApp', [])
       })
       .when('/contato', {
         templateUrl: 'partials/contato.html',
-        controller: 'ProjetosCtrl',
+        controller: 'ContatosCtrl',
         reloadOnSearch: false
       })
       .otherwise({

@@ -1,43 +1,9 @@
 <div class="row">
   <div id="contato" class="large-12 columns">
     <h1>Contato</h1>
-    <div class="small-12 large-3 columns">
-      <h2>Interior</h2>
-      <p>CRISTINA DAVID</p>
-      <p>cristianadavid@cadas.com.br</p><br/>
-      <p>BRUNA PIRÁ</p>
-      <p>brunapira@cadas.com.br</p><br/>
-      <p>MARCELA GROTH</p>
-      <p>marcelagroth@cadas.com.br</p><br/>
-      <p>RODRIGO BEZE</p>
-      <p>rodrigobeze@cadas.com.br</p>
-    </div>
-    <div class="small-12 large-3 columns">
-      <h2>Arquitetura</h2>
-      <p>MAURICIO MAGARAO</p>
-      <p>mauriciomagarao@cadas.com.br</p><br/>
-      <p>RICARDO GONCALVES</p>
-      <P>ricardogoncalves@cadas.com.br</P><br/>
-      <p>ALICE LINDERBERG</p>
-      <p>alicelinderberg@cadas.com.br</p><br/>
-      <p>LUIZA LANDIM</p>
-      <p>luizalandim@cadas.com.br</p><br/>
-      <p>PEDRO MESQUITA</p>
-      <P>pedromesquita@cadas.com.br</P>
-    </div>
-    <div class="small-12 large-3 columns">
-      <h2>Administração</h2>
-      <p>LILIAN SIQUEIRA</p>
-      <P>liliansiqueira@cadas.com.br</P>
-    </div>
-    <div class="small-12 large-3 columns">
-      <h2>Endereço</h2>
-      <p>Rua Redentor, 23 - térreo</p>
-      <p>Ipanema - Cep 22421-030</p>
-      <p>Rio de Janeiro - RJ</p>
-      <P>Tel: 21.25232449</P>
-      <p>Fax: 21.222879742</p><br/>
-      <p><a href="" class="mapa">Ver no mapa</a></p><br/>
+    <div class="small-12 large-3 columns" ng-repeat="bloco in content">
+      <h2>{{bloco.titulo}}</h2>
+      <p ng-repeat="linha in bloco.conteudo">{{linha.linha}}</p>
     </div>
   </div>
 </div>
