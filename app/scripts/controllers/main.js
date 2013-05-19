@@ -155,7 +155,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                 generate: function() {
                     var i = 0;
                     var projetos = $scope.content;
-                    console.log(projetos.length);
                     for (i=0; i<projetos.length; i++) {
                         var html = "<div class='swiper-container swiper-nested2 swiper-n"+i+"'>"+
                                         "<div class='page pagination-nested2 pagination-n"+i+"'></div>"+
@@ -179,7 +178,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                             }
                         });
                         for (var k=0; k < projetos[i].galeria.length; k++) {
-                            console.log(style);
                             var html;
                             var lowRes = projetos[i].galeria[k].low_res;
                             var highRes = projetos[i].galeria[k].high_res;
@@ -202,13 +200,10 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             var y = $scope.swipers.verticalSwipers.swipers[x];
             switch(e.keyCode) {
                 case 38:
-                    console.log('up');
                     y.swipePrev();
                     break;
                 case 40:
-                    console.log('down');
                     if (y.activeSlide === y.slides.length - 1) {
-                        console.log('subindo');
                         y.swipeTo(0, 1000, true);
                     }  else {
                         y.swipeNext();
@@ -268,7 +263,6 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
 app.controller('ProjetosCtrl', function ($location, $routeParams, $scope, $rootScope, $http, $window) {
     $scope.onPerfil = $rootScope.onPerfil;
-    console.log(2);
     $scope.populate = function() {
         var url = 'data_projetos.json';
         $http.get(url).success(function(response){
