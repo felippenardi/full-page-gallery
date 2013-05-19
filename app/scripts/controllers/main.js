@@ -224,7 +224,7 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
             var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : 0 ), 10);
             var foto = parseInt(( ($routeParams.foto) ? $routeParams.foto : 0 ), 10);
             $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,300, false);
-            //$scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
+            $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
             $scope.activeProject = $routeParams.projeto;
 
             $scope.loadImageBackground();
@@ -232,15 +232,21 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
 
         });
 
-        var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : 0 ), 10);
+        var projeto = parseInt(( ($routeParams.projeto) ? $routeParams.projeto : Math.floor(Math.random()*($scope.swipers.horizontalSwiper.swiper.slides.length)) ), 10);
         var foto = parseInt(( ($routeParams.foto) ? $routeParams.foto : 0 ), 10);
+        $location.search('projeto',projeto)
+        $location.search('foto',foto)
+
         $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
         $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 0, false);
-        $scope.activeProject = $routeParams.projeto;
+
+        $scope.swipers.horizontalSwiper.swiper.swipeTo(projeto,0, false);
+        $scope.swipers.verticalSwipers.swipers[projeto].swipeTo(foto, 300, false);
+
+        $scope.activeProject = projeto;
         $scope.loadImageBackground();
-
-
     }
+
     $scope.goLeft = function() {
         $scope.swipers.horizontalSwiper.swiper.swipePrev();
     }
