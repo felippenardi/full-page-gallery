@@ -204,7 +204,8 @@ app.controller('MainCtrl', function ($location, $routeParams, $scope, $rootScope
                     break;
                 case 40:
                     if (y.activeSlide === y.slides.length - 1) {
-                        y.swipeTo(0, 1000, true);
+                        y.swipeTo(0, 0, true);
+                        $scope.loadImageBackground();
                     }  else {
                         y.swipeNext();
                     }
